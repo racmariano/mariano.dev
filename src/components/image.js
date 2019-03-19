@@ -13,6 +13,16 @@ import Img from "gatsby-image"
  * - `StaticQuery`: https://gatsby.dev/staticquery
  */
 
+export const fixedImage = graphql`
+  fragment fixedImage on File {
+    childImageSharp {
+      fixed(width: 64) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`
+
 const Image = () => (
   <StaticQuery
     query={graphql`

@@ -1,42 +1,40 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
+import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+import { rhythm } from "../utils/typography"
+
+const Head = styled.header`
+  background: ${props => props.theme.colors.divisors};
+  width: 100%;
+  height: 100px;
+`
+
+const StyledLink = styled(Link)`
+  color: ${props => props.theme.colors.link};
+  display: inline-block;
+  float: right;
+  margin-right: 2rem;
+  padding: ${rhythm(1)};
+  font-size: 2rem;
+  text-shadow: none;
+`
+
+const Header = () => (
+  <Head>
+    <h1
+      css={css`
+        padding: ${rhythm(1)};
+        display: inline-block;
+      `}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+      for science!
+    </h1>
+    <StyledLink to="/about/">about</StyledLink>
+    <StyledLink to="/portfolio/">portfolio</StyledLink>
+    <StyledLink to="/resume/">resume</StyledLink>
+  </Head>
 )
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header
