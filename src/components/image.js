@@ -23,6 +23,16 @@ export const fixedImage = graphql`
   }
 `
 
+export const fixedPhoto = graphql`
+  fragment fixedPhoto on File {
+    childImageSharp {
+      fixed(width: 200, height: 200) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+`
+
 const Image = () => (
   <StaticQuery
     query={graphql`

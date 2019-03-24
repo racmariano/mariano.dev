@@ -21,9 +21,15 @@ const TextAbout = props => (
       `}
     >
       <img src={hello} alt="Hello!" style={{ width: 64, float: "left" }} />
-      <h1 css={css``}>Hi, I'm Rachelle! Nice to meet you!</h1>
+      <h1>Hi, I'm Rachelle! Nice to meet you!</h1>
     </div>
-    <div style={{ paddingTop: 25 }}>
+    <div
+      css={css`
+        padding-top: 25px;
+        font-style: arial;
+        font-size: 20px;
+      `}
+    >
       <p>
         I'm a back-end developer. I currently live and work in the Boston area.
       </p>
@@ -44,6 +50,7 @@ const AboutPage = props => (
     <div
       css={css`
         display: flex;
+        height: 100%;
       `}
     >
       <TextAbout />
