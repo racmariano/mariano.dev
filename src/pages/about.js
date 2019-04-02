@@ -6,8 +6,6 @@ import { css } from "@emotion/core"
 import hello from "../images/woman-raising-hand.svg"
 import BubbleCarousel from "../components/bubbleCarousel"
 
-const BubbleAbout = props => <BubbleCarousel />
-
 const TextAbout = props => (
   <div
     css={css`
@@ -54,7 +52,7 @@ const AboutPage = props => (
       `}
     >
       <TextAbout />
-      <BubbleAbout />
+      <BubbleCarousel />
     </div>
   </Layout>
 )

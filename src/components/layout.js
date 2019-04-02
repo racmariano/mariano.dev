@@ -32,6 +32,7 @@ const Layout = ({ children }) => (
       `}
       render={data => (
         <div
+          id="root"
           css={css`
             display: flex;
             flex-direction: column;
