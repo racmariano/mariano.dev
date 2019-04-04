@@ -3,7 +3,6 @@ import Modal from "react-modal"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { css, keyframes } from "@emotion/core"
-import { checkPropTypes } from "prop-types"
 
 // Modal.setAppElement("#root")
 
@@ -34,9 +33,9 @@ const loop = keyframes`
   0%
     {top: -100%; left: 0%; }
   49%
-    {top: 100%; left: 0%; }
+    {top: 60%; left: 0%; }
   50%
-    {top: 100%; left: 80%; }
+    {top: 60%; left: 80%; }
   100%
     {top: -100%; left: 80%; }
 `
@@ -48,6 +47,8 @@ const Bubble = props => (
       position: relative;
       display: inline-block;
       animation: ${loop} 40s linear infinite;
+      height: 200px;
+      width: 200px;
     `}
   >
     <Img
@@ -55,6 +56,8 @@ const Bubble = props => (
       fixed={props.imgData.childImageSharp.fixed}
       css={css`
         border-radius: 50%;
+        max-height: 100%;
+        max-width: 100%;
       `}
     />
   </div>
@@ -80,6 +83,37 @@ const BubbleCarousel = () => {
 
   const [modalVisible, toggleModal] = useState(false)
   const [selectedImage, selectImage] = useState(null)
+  const [selectedText, selectText] = useState("Hello, world!")
+  const textDescriptions = {
+    garden:
+      "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture.",
+    glacier:
+      "Daniel and I climbing glaciers in Iceland! We're always trying to go on new adventures.",
+    grass: "Walking through a sea of grass. Nature is lit!",
+    owl: "Owl cafe in Tokyo, Japan! Cute things are the best!",
+    yarn:
+      "I like to crochet while commuting (to work or skiing), and while watching anime!",
+    zuly:
+      "This is Zuly, my fur baby and the love of my life! ...not counting Daniel.",
+  }
+
+  const createBubbles = () => {
+    var bubbles = []
+    for (const [imageKey, imageData] of Object.entries(data)) {
+      bubbles.push(
+        <Bubble
+          onClick={() => {
+            toggleModal(true)
+            selectImage(imageData)
+            selectText(textDescriptions[imageKey])
+          }}
+          imgData={imageData}
+          alt={textDescriptions[imageKey]}
+        />
+      )
+    }
+    return bubbles
+  }
 
   return (
     <div
@@ -97,41 +131,19 @@ const BubbleCarousel = () => {
         contentLabel="Freeze Frame!"
       >
         <button onClick={() => toggleModal(false)}>close!</button>
-        <div>i am a modal! </div>
+        <div
+          css={css`
+            display: flex;
+            justify-content: space-evenly;
+          `}
+        >
+          <div>
+            <Img fixed={selectedImage.childImageSharp.fixed} />
+          </div>
+          <div>{selectedText}</div>
+        </div>
       </Modal>
-
-      <Track>
-        <Bubble
-          onClick={() => toggleModal(true)}
-          imgData={data.glacier}
-          alt="Daniel and I climbing glaciers in Iceland! We're always trying to go on new adventures."
-        />
-        <Bubble
-          onClick={() => toggleModal(true)}
-          imgData={data.grass}
-          alt="Walking through a sea of grass. Nature is lit!"
-        />
-        <Bubble
-          onClick={() => toggleModal(true)}
-          imgData={data.garden}
-          alt="Beautiful gardens in Kanazawa, Japan! I really love Japanese culture."
-        />
-        <Bubble
-          onClick={() => toggleModal(true)}
-          imgData={data.owl}
-          alt="Owl cafe in Tokyo, Japan! Cute things are the best!"
-        />
-        <Bubble
-          onClick={() => toggleModal(true)}
-          imgData={data.yarn}
-          alt="I like to crochet while commuting (to work or skiing), and while watching anime!"
-        />
-        <Bubble
-          onClick={() => toggleModal(true)}
-          imgData={data.zuly}
-          alt="This is Zuly, my fur baby and the love of my life! ...not counting Daniel."
-        />
-      </Track>
+      <Track>{createBubbles()}</Track>
     </div>
   )
 }
