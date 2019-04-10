@@ -6,13 +6,18 @@ import styled from "@emotion/styled"
 import { rhythm } from "../utils/typography"
 
 const Head = styled.header`
-  background: ${props => props.theme.colors.divisors};
+  background: ${props => props.theme.divisors.color};
   width: 100%;
-  height: 100px;
+  height: ${props => props.theme.divisors.headerHeight};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: ${props => props.theme.divisors.border};
 `
 
-const StyledLink = styled(Link)`
-  color: ${props => props.theme.colors.link};
+const HeaderLink = styled(Link)`
+  background-image: None;
+  color: ${props => props.theme.divisors.text};
   display: inline-block;
   float: right;
   margin-right: 2rem;
@@ -21,20 +26,36 @@ const StyledLink = styled(Link)`
   text-shadow: none;
 `
 
-const Header = () => (
-  <Head>
-    <h1
-      css={css`
-        padding: ${rhythm(1)};
-        display: inline-block;
-      `}
-    >
-      for science!
-    </h1>
-    <StyledLink to="/about/">about</StyledLink>
-    <StyledLink to="/portfolio/">portfolio</StyledLink>
-    <StyledLink to="/resume/">resume</StyledLink>
-  </Head>
-)
+const HeaderText = styled.text`
+  color: ${props => props.theme.divisors.text};
+  font-size: 3rem;
+  padding: ${rhythm(1)};
+`
+
+const Header = () => {
+  const coolThings = [
+    "epigenetics",
+    "kittens",
+    "learning",
+    "puppies",
+    "science",
+    "the moon kingdom",
+  ]
+
+  return (
+    <Head>
+      <div>
+        <HeaderText>
+          for {coolThings[Math.floor(Math.random() * coolThings.length)]}!
+        </HeaderText>
+      </div>
+      <div>
+        <HeaderLink to="/about/">about</HeaderLink>
+        <HeaderLink to="/portfolio/">portfolio</HeaderLink>
+        <HeaderLink to="/resume/">resume</HeaderLink>
+      </div>
+    </Head>
+  )
+}
 
 export default Header

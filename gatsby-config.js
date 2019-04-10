@@ -31,7 +31,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `standalone`,
-        icon: `src/images/woman-scientist.png`,
+        icon: `src/images/general/woman_scientist.svg`,
       },
     },
     "gatsby-plugin-offline",

@@ -1,8 +1,14 @@
 const colors = {
-  body: "#FFFFFF",
-  link: "#8B008B",
-  mainText: "#FFFFEE",
-  divisors: "#FFAAEE",
+  body: "#eaeaea",
+  mainText: "#444444",
+}
+
+const divisors = {
+  color: "#f30067",
+  border: "15px solid #00d1cd",
+  text: "#eaeaea",
+  headerHeight: "150px",
+  footerHeight: "100px",
 }
 
 const images = {
@@ -12,6 +18,7 @@ const images = {
 const theme = {
   colors,
   images,
+  divisors,
 }
 
 export default theme

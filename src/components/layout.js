@@ -14,9 +14,9 @@ import { css } from "@emotion/core"
 import theme from "../../config/theme"
 import "./layout.css"
 
-import Header from "./header"
+import Header from "./Header"
 import Body from "./body"
-import Footer from "./footer"
+import Footer from "./Footer"
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>

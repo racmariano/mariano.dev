@@ -3,13 +3,16 @@ import Layout from "../components/layout"
 
 import { css } from "@emotion/core"
 
-import hello from "../images/woman-raising-hand.svg"
-import BubbleCarousel from "../components/bubbleCarousel"
+import hello from "../images/general/woman_raising_hand.svg"
+import BubbleCarousel from "../components/BubbleCarousel"
 
 const TextAbout = props => (
   <div
     css={css`
       width: 50%;
+      display: flex;
+      flex-direction: column;
+      padding-left: 2%;
     `}
   >
     <div
@@ -28,15 +31,27 @@ const TextAbout = props => (
         font-size: 20px;
       `}
     >
+      <p>I'm a back-end developer who currently lives and works in Boston.</p>
       <p>
-        I'm a back-end developer. I currently live and work in the Boston area.
+        Microservices are cool, Python is a dope language, and there's always so
+        much more to learn!
       </p>
       <p>
-        I think microservices are cool, Python is a dope language, and that
-        there is always so much more to learn!
+        Growing up, I wanted to be a scientist like my Dad. In college, I
+        pursued a dual major in Biochemistry and Computer Science so that I
+        could work with data over their entire lifecycle.
       </p>
       <p>
-        In my free time, I ski, practice circus arts (lyra and silks), crochet,
+        When I graduated, I jumped into Harvard's Biological and Biomedical
+        Science Ph.D. program, where I conducted research on axolotl limb
+        regeneration. I felt extremely blessed to be working with such amazing
+        peers on such a cool topic. I also felt extremely conflicted, as I liked
+        programming more than research and wanted to pursue a career in
+        software.
+      </p>
+      <p>The rest is history. </p>
+      <p>
+        In my free time, I practice circus arts (lyra and silks), crochet, ski,
         and walk my cat.
       </p>
     </div>
@@ -49,6 +64,7 @@ const AboutPage = props => (
       css={css`
         display: flex;
         height: 100%;
+        justify-content: center;
       `}
     >
       <TextAbout />

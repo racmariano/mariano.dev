@@ -4,26 +4,23 @@ import Img from "gatsby-image"
 
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
-import { rhythm } from "../utils/typography"
-
-import fixedImage from "./image"
 
 const footerImageQuery = graphql`
   query {
-    email: file(relativePath: { eq: "email.png" }) {
+    email: file(relativePath: { eq: "general/email.png" }) {
       ...fixedImage
     }
-    github: file(relativePath: { eq: "github.png" }) {
+    github: file(relativePath: { eq: "general/github.png" }) {
       ...fixedImage
     }
-    linkedin: file(relativePath: { eq: "linkedin.png" }) {
+    linkedin: file(relativePath: { eq: "general/linkedin.png" }) {
       ...fixedImage
     }
   }
 `
-
 const ImageLink = styled.a`
   padding: 1rem;
+  background-image: None;
 `
 
 const FooterImages = () => {
@@ -33,9 +30,9 @@ const FooterImages = () => {
       css={css`
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-end;
         height: 100%;
-        width: 100%;
+        width: 95%;
       `}
     >
       <ImageLink href="mailto:rachelle.mariano@gmail.com">
@@ -52,9 +49,10 @@ const FooterImages = () => {
 }
 
 const Foot = styled.footer`
-  background: ${props => props.theme.colors.divisors};
+  background: ${props => props.theme.divisors.color};
   width: 100%;
-  height: 100px;
+  height: ${props => props.theme.divisors.footerHeight};
+  border-top: ${props => props.theme.divisors.border};
 `
 
 const Footer = props => (

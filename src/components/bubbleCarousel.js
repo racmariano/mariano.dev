@@ -8,22 +8,22 @@ import { css, keyframes } from "@emotion/core"
 
 const carouselImageQuery = graphql`
   query {
-    glacier: file(relativePath: { eq: "iceland_glacier.jpg" }) {
+    glacier: file(relativePath: { eq: "about_page/iceland_glacier.jpg" }) {
       ...fixedPhoto
     }
-    grass: file(relativePath: { eq: "iceland_grass.jpg" }) {
+    grass: file(relativePath: { eq: "about_page/iceland_grass.jpg" }) {
       ...fixedPhoto
     }
-    garden: file(relativePath: { eq: "japan_garden.jpg" }) {
+    garden: file(relativePath: { eq: "about_page/japan_garden.jpg" }) {
       ...fixedPhoto
     }
-    owl: file(relativePath: { eq: "japan_owl.jpg" }) {
+    owl: file(relativePath: { eq: "about_page/japan_owl.jpg" }) {
       ...fixedPhoto
     }
-    yarn: file(relativePath: { eq: "yarn.jpg" }) {
+    yarn: file(relativePath: { eq: "about_page/yarn.jpg" }) {
       ...fixedPhoto
     }
-    zuly: file(relativePath: { eq: "zuly.jpg" }) {
+    zuly: file(relativePath: { eq: "about_page/zuly.jpg" }) {
       ...fixedPhoto
     }
   }
@@ -79,14 +79,10 @@ const Track = props => (
 )
 
 const BubbleCarousel = () => {
-  const data = useStaticQuery(carouselImageQuery)
-
-  const [modalVisible, toggleModal] = useState(false)
-  const [selectedImage, selectImage] = useState(null)
-  const [selectedText, selectText] = useState("Hello, world!")
+  const imageQuery = useStaticQuery(carouselImageQuery)
   const textDescriptions = {
     garden:
-      "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture.",
+      "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture. Weeaboo a.f.",
     glacier:
       "Daniel and I climbing glaciers in Iceland! We're always trying to go on new adventures.",
     grass: "Walking through a sea of grass. Nature is lit!",
@@ -97,9 +93,14 @@ const BubbleCarousel = () => {
       "This is Zuly, my fur baby and the love of my life! ...not counting Daniel.",
   }
 
+  // Hooks!
+  const [modalVisible, toggleModal] = useState(false)
+  const [selectedImage, selectImage] = useState(imageQuery.glacier)
+  const [selectedText, selectText] = useState("Hello, world!")
+
   const createBubbles = () => {
     var bubbles = []
-    for (const [imageKey, imageData] of Object.entries(data)) {
+    for (const [imageKey, imageData] of Object.entries(imageQuery)) {
       bubbles.push(
         <Bubble
           onClick={() => {
@@ -125,22 +126,33 @@ const BubbleCarousel = () => {
         overflow: hidden;
       `}
     >
-      <Modal
-        isOpen={modalVisible}
-        onRequestClose={() => toggleModal(false)}
-        contentLabel="Freeze Frame!"
-      >
+      <Modal isOpen={modalVisible} onRequestClose={() => toggleModal(false)}>
         <button onClick={() => toggleModal(false)}>close!</button>
         <div
           css={css`
             display: flex;
             justify-content: space-evenly;
+            height: 100%;
           `}
         >
-          <div>
+          <div
+            css={css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            `}
+          >
             <Img fixed={selectedImage.childImageSharp.fixed} />
           </div>
-          <div>{selectedText}</div>
+          <div
+            css={css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            `}
+          >
+            {selectedText}
+          </div>
         </div>
       </Modal>
       <Track>{createBubbles()}</Track>
