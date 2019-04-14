@@ -1,8 +1,6 @@
 import React, { Fragment } from "react"
 import styled from "@emotion/styled"
 
-import { rhythm } from "../utils/typography"
-
 const Wrapper = styled.div`
   background: ${props => props.theme.colors.body};
   display: flex;

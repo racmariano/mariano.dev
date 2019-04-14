@@ -1,30 +1,22 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faLinkedin, faGithubAlt } from "@fortawesome/free-brands-svg-icons"
 
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-const footerImageQuery = graphql`
-  query {
-    email: file(relativePath: { eq: "general/email.png" }) {
-      ...fixedImage
-    }
-    github: file(relativePath: { eq: "general/github.png" }) {
-      ...fixedImage
-    }
-    linkedin: file(relativePath: { eq: "general/linkedin.png" }) {
-      ...fixedImage
-    }
-  }
-`
 const ImageLink = styled.a`
   padding: 1rem;
   background-image: None;
+  color: ${props => props.theme.divisors.text};
+  font-size: 64px;
+  :hover {
+    color: black;
+  }
 `
 
 const FooterImages = () => {
-  const data = useStaticQuery(footerImageQuery)
   return (
     <div
       css={css`
@@ -36,13 +28,13 @@ const FooterImages = () => {
       `}
     >
       <ImageLink href="mailto:rachelle.mariano@gmail.com">
-        <Img fixed={data.email.childImageSharp.fixed} />
+        <FontAwesomeIcon icon={faEnvelope} />
       </ImageLink>
       <ImageLink href="https://www.linkedin.com/in/racmariano/">
-        <Img fixed={data.linkedin.childImageSharp.fixed} />
+        <FontAwesomeIcon icon={faLinkedin} />
       </ImageLink>
       <ImageLink href="https://github.com/racmariano">
-        <Img fixed={data.github.childImageSharp.fixed} />
+        <FontAwesomeIcon icon={faGithubAlt} />
       </ImageLink>
     </div>
   )

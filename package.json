@@ -7,6 +7,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.9",
     "@emotion/styled": "^10.0.9",
+    "@fortawesome/fontawesome-svg-core": "^1.2.17",
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "emotion-theming": "^10.0.9",
     "gatsby": "^2.3.6",
     "gatsby-image": "^2.0.33",
@@ -20,6 +24,7 @@
     "gatsby-transformer-sharp": "^2.1.17",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-collapsible": "^2.6.0",
     "react-dom": "^16.8.4",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",

@@ -1,4 +1,5 @@
 import React from "react"
+import Collapsible from "react-collapsible"
 import Layout from "../components/layout"
 
 import { css } from "@emotion/core"
@@ -15,10 +16,30 @@ const LogoImg = styled.img`
   padding: 2px;
 `
 
-const ResumeListElement = styled.li`
-  list-style-type: none;
+const ResumeAccordion = styled.div`
+  .icon::after {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+  }
+  .Collapsible__trigger {
+    border: 5px solid #00d1cd;
+    color: #f30067;
+    font-size: 40px;
+    display: block;
+    padding: 20px;
+    margin: 20px;
+    width: 50%;
+  }
+  .Collapsible__trigger::after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+    content: "\f433";
+    float: right;
+  }
 `
-
 const ResumePage = () => (
   <Layout>
     <div
@@ -31,31 +52,25 @@ const ResumePage = () => (
       <h1>Resume</h1>
     </div>
     <div>Download a PDF version of my resume!</div>
-    <div>
-      <h2>Software Engineer</h2>
-      <ol>
-        <ResumeListElement>
-          <LogoImg
-            src={klaviyo}
-            alt="My first job as a software engineer has been at Klaviyo."
-          />
-          <p>10/2017 - Current</p>
-          <p>I fight the power.</p>
-        </ResumeListElement>
-      </ol>
-    </div>
-    <div>
-      <h2>School</h2>
-      <ol>
-        <ResumeListElement>
+    <ResumeAccordion>
+      <Collapsible trigger="Software Engineer" open={true}>
+        <LogoImg
+          src={klaviyo}
+          alt="My first job as a software engineer has been at Klaviyo."
+        />
+        <p>10/2017 - Current</p>
+        <p>I fight the power.</p>
+      </Collapsible>
+      <Collapsible trigger="Education">
+        <div>
           <LogoImg
             src={harvard}
             alt="I conducted research and earned a Master of Arts in Biology at Harvard."
           />
           <p>09/2015 - 06/2017</p>
           <p>AXOLOTL INTENSIFIES.</p>
-        </ResumeListElement>
-        <ResumeListElement>
+        </div>
+        <div>
           <LogoImg
             src={miami}
             alt="I pursued a dual major in Biochemistry and Computer Science at the University of Miami."
@@ -64,24 +79,21 @@ const ResumePage = () => (
           <p>
             I went to club Richter every night. Club Richter being the library.
           </p>
-        </ResumeListElement>
-      </ol>
-    </div>
-    <div>
-      <h2>Research</h2>
-      <ol>
-        <ResumeListElement>
+        </div>
+      </Collapsible>
+      <Collapsible trigger="Research and Publications">
+        <div>
           Virus-Host Interactions
           <p>05/2014 - 05/2015</p>
           <p>Do you know what's cool? USING GRAPHS TO STUDY VIRUSES.</p>
-        </ResumeListElement>
-        <ResumeListElement>
+        </div>
+        <div>
           Dog Genome
           <p>06/2014 - 09/2014</p>
           <p>Dogs are also cool.</p>
-        </ResumeListElement>
-      </ol>
-    </div>
+        </div>
+      </Collapsible>
+    </ResumeAccordion>
   </Layout>
 )
 

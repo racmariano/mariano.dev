@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import { css } from "@emotion/core"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 import styled from "@emotion/styled"
 
 import { rhythm } from "../utils/typography"
@@ -24,9 +25,12 @@ const HeaderLink = styled(Link)`
   padding: ${rhythm(1)};
   font-size: 2rem;
   text-shadow: none;
+  :hover {
+    color: black;
+  }
 `
 
-const HeaderText = styled.text`
+const HeaderText = styled.div`
   color: ${props => props.theme.divisors.text};
   font-size: 3rem;
   padding: ${rhythm(1)};
@@ -34,21 +38,19 @@ const HeaderText = styled.text`
 
 const Header = () => {
   const coolThings = [
-    "epigenetics",
-    "kittens",
-    "learning",
-    "puppies",
-    "science",
-    "the moon kingdom",
+    "the epigenome! 🧬",
+    "kittens! 🐱",
+    "learning! 📚",
+    "puppies! 🐶",
+    "science! 🔬",
+    "the moon kingdom! 🌙",
   ]
 
   return (
     <Head>
-      <div>
-        <HeaderText>
-          for {coolThings[Math.floor(Math.random() * coolThings.length)]}!
-        </HeaderText>
-      </div>
+      <HeaderText>
+        for {coolThings[Math.floor(Math.random() * coolThings.length)]}
+      </HeaderText>
       <div>
         <HeaderLink to="/about/">about</HeaderLink>
         <HeaderLink to="/portfolio/">portfolio</HeaderLink>
