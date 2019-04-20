@@ -1,8 +1,8 @@
 import React from "react"
-import Layout from "../components/layout"
-
 import { css } from "@emotion/core"
 
+import Description from "../components/Description"
+import Layout from "../components/layout"
 import BubbleCarousel from "../components/BubbleCarousel"
 
 const TextAbout = props => (
@@ -11,18 +11,12 @@ const TextAbout = props => (
       width: 50%;
       display: flex;
       flex-direction: column;
-      padding-left: 2%;
+      padding: 20px;
     `}
   >
     <h1>🙋‍ Hi, I'm Rachelle! Nice to meet you!</h1>
-    <div
-      css={css`
-        padding-top: 25px;
-        font-style: arial;
-        font-size: 20px;
-      `}
-    >
-      <p>I'm a back-end developer who currently lives and works in Boston.</p>
+    <Description>
+      <p>I'm a software developer who currently lives and works in Boston.</p>
       <p>
         Microservices are cool, Python is a dope language, and there's always so
         much more to learn!
@@ -45,7 +39,7 @@ const TextAbout = props => (
         In my free time, I practice circus arts (lyra and silks), crochet, ski,
         and walk my cat.
       </p>
-    </div>
+    </Description>
   </div>
 )
 

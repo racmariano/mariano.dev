@@ -26,8 +26,6 @@ const HeaderLink = styled(Link)`
   padding: ${rhythm(2)};
   font-size: 2rem;
   text-shadow: none;
-  :hover {
-    color: black;
   }
 `
 

@@ -2,17 +2,26 @@ import React from "react"
 import Collapsible from "react-collapsible"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
+import { rhythm } from "../utils/typography"
 
+import Description from "../components/Description"
 import Layout from "../components/layout"
 import klaviyo from "../images/resume_page/klaviyo_logo.png"
 import harvard from "../images/resume_page/harvard_logo.png"
 import miami from "../images/resume_page/umiami_logo.png"
 
-import { rhythm } from "../utils/typography"
-
-const PublicationList = styled.ul`
-  list-style: none;
-`
+const PublicationList = props => (
+  <div>
+    <b>Publications: </b>
+    <ul
+      css={css`
+        list-style: none;
+      `}
+    >
+      {props.children}
+    </ul>
+  </div>
+)
 
 const LogoImg = styled.img`
   width: 300px;
@@ -27,16 +36,14 @@ const ResumeAccordion = styled.div`
     color: ${props => props.theme.divisors.color};
     font-size: 40px;
     padding: 20px;
-    margin-bottom: ${rhythm(1)};
+    margin: 10px;
     display: block;
   }
 `
 
-const Description = styled.div`
-  font-size: ${rhythm(1)};
-  line-height: ${rhythm(1.5)};
+const ResumeDivisor = styled.div`
+  border-bottom: 3px solid ${props => props.theme.divisors.borderColor};
   margin-bottom: ${rhythm(1)};
-  margin-top: ${rhythm(1)};
 `
 
 const ResumeElement = props => (
@@ -44,7 +51,7 @@ const ResumeElement = props => (
     css={css`
       display: flex;
       flex-direction: column;
-      padding: ${rhythm(1)};
+      margin: ${rhythm(1)};
     `}
   >
     <div
@@ -83,7 +90,7 @@ const ResumePage = () => (
   <Layout>
     <div
       css={css`
-        margin: 20px;
+        padding: 20px;
       `}
     >
       <h1>👩‍🎓 Resume</h1>
@@ -110,7 +117,11 @@ const ResumePage = () => (
                   external platforms. I contributed to diverse features,
                   including:
                 </p>
-                <PublicationList>
+                <ul
+                  css={css`
+                    list-style: none;
+                  `}
+                >
                   <li>
                     <a href="https://www.klaviyo.com/blog/capture-customer-back-stock-flows">
                       Back In Stock
@@ -126,7 +137,7 @@ const ResumePage = () => (
                       Custom Objects
                     </a>
                   </li>
-                </PublicationList>
+                </ul>
                 <p>
                   Integrations split in January 2019, and I joined the data
                   augmentation team. We are responsible for higher level
@@ -190,6 +201,7 @@ const ResumePage = () => (
               </Description>
             }
           />
+          <ResumeDivisor />
           <ResumeElement
             imageSource={miami}
             imageAlt="I pursued a dual major in Biochemistry and Computer Science at the University of Miami."
@@ -223,10 +235,6 @@ const ResumePage = () => (
             timerange="09/2015 - 05/2017"
             description={
               <Description>
-                <p>
-                  I conducted research under Dr. Jessica Whited for my Master's
-                  degree. This resulted in a publication about:
-                </p>
                 <PublicationList>
                   <li>
                     <a href="https://www.nature.com/articles/s41467-018-07604-0">
@@ -235,9 +243,10 @@ const ResumePage = () => (
                   </li>
                 </PublicationList>
                 <p>
-                  Understanding how axolotl salamanders regenerate their limbs
-                  may lead to insights into pain management and (maybe one day
-                  in the far future) regeneration for human amputees.
+                  I conducted research under Dr. Jessica Whited for my Master's
+                  degree. Understanding how axolotl salamanders regenerate their
+                  limbs may lead to insights into pain management and (maybe one
+                  day in the far future) regeneration for human amputees.
                 </p>
                 <p>
                   I used shell scripts and R packages (
@@ -248,16 +257,12 @@ const ResumePage = () => (
               </Description>
             }
           />
+          <ResumeDivisor />
           <ResumeElement
             activity="Virus-Host Interactions"
             timerange="05/2014 - 05/2015"
             description={
               <Description>
-                <p>
-                  I conducted computational research under Dr. Stefan Wuchty
-                  during my senior undergraduate year. This resulted in 3
-                  publications about:
-                </p>
                 <PublicationList>
                   <li>
                     <a href="https://www.ncbi.nlm.nih.gov/pubmed/28319831">
@@ -278,8 +283,10 @@ const ResumePage = () => (
                   </li>
                 </PublicationList>
                 <p>
-                  Understanding how viruses target bacterial hosts may help us
-                  develop new therapies for bacteria-borne diseases.
+                  I conducted research under Dr. Stefan Wuchty during my senior
+                  undergraduate year. Understanding how viruses target bacterial
+                  hosts may help us develop new therapies for bacteria-borne
+                  diseases.
                 </p>
                 <p>
                   I used Python scripts to investigate how viruses interact with
@@ -288,20 +295,12 @@ const ResumePage = () => (
               </Description>
             }
           />
+          <ResumeDivisor />
           <ResumeElement
             activity="Dog Genomics"
             timerange="06/2014 - 09/2014"
             description={
               <Description>
-                <p>
-                  I participated in the{" "}
-                  <a href="https://molbio.princeton.edu/undergraduate/research/surp">
-                    Princeton Molecular and Quantitative Biology Summer
-                    Undergraduate Research Program
-                  </a>
-                  and conducted research under Dr. Bridgett vonHoldt. This
-                  resulted in a publication about:
-                </p>
                 <PublicationList>
                   <li>
                     <a href="https://www.sciencedirect.com/science/article/pii/S2452014416300310">
@@ -310,6 +309,12 @@ const ResumePage = () => (
                   </li>
                 </PublicationList>
                 <p>
+                  I participated in the{" "}
+                  <a href="https://molbio.princeton.edu/undergraduate/research/surp">
+                    Princeton Molecular and Quantitative Biology Summer
+                    Undergraduate Research Program
+                  </a>{" "}
+                  and conducted research under Dr. Bridgett vonHoldt.
                   Understanding the genome structure of dogs lets us understand
                   how different breeds have such different traits and disease
                   susceptibility. Viral DNA sequences contribute to genomic
