@@ -1,42 +1,65 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
+import { Link } from "gatsby"
+import styled from "@emotion/styled"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+import { rhythm } from "../utils/typography"
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Head = styled.div`
+  height: ${props => props.theme.divisors.headerHeight};
+  background: ${props => props.theme.divisors.color};
+  border-bottom: ${props => props.theme.divisors.border};
+`
 
-Header.defaultProps = {
-  siteTitle: ``,
+const HeadContent = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const HeaderLink = styled(Link)`
+  background-image: None;
+  color: ${props => props.theme.divisors.text};
+  display: inline-block;
+  float: right;
+  padding: ${rhythm(2)};
+  font-size: 2rem;
+  text-shadow: none;
+  }
+`
+
+const HeaderText = styled.h1`
+  color: ${props => props.theme.divisors.text};
+  font-size: 3rem;
+  padding: ${rhythm(1)};
+  height: 100%;
+`
+
+const Header = () => {
+  const coolThings = [
+    "the epigenome! 🧬",
+    "kittens! 🐱",
+    "learning! 📚",
+    "puppies! 🐶",
+    "science! 🔬",
+    "the moon kingdom! 🌙",
+  ]
+
+  return (
+    <Head>
+      <HeadContent>
+        <HeaderText>
+          for {coolThings[Math.floor(Math.random() * coolThings.length)]}
+        </HeaderText>
+        <div>
+          <HeaderLink to="/about/">about</HeaderLink>
+          <HeaderLink to="/portfolio/">portfolio</HeaderLink>
+          <HeaderLink to="/resume/">resume</HeaderLink>
+        </div>
+      </HeadContent>
+    </Head>
+  )
 }
 
 export default Header
