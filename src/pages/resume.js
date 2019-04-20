@@ -5,7 +5,7 @@ import styled from "@emotion/styled"
 import { rhythm } from "../utils/typography"
 
 import Description from "../components/Description"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import klaviyo from "../images/resume_page/klaviyo_logo.png"
 import harvard from "../images/resume_page/harvard_logo.png"
 import miami from "../images/resume_page/umiami_logo.png"
@@ -149,8 +149,8 @@ const ResumePage = () => (
                   Kubernetes for storing and manipulating catalog data. It uses
                   gRPC to talk to our monolith and handles over 1 billion
                   requests each week. We built it to create an intuitive API for
-                  downstream teams and to leverage location-based
-                  functionalities using Postgres and PostGIS.
+                  downstream teams and to leverage the geographic capabilities
+                  of PostGIS.
                 </p>
               </Description>
             }

@@ -5,7 +5,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 import Description from "../components/Description"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 
 import meme from "../images/portfolio_meme.jpg"
 
@@ -72,6 +72,7 @@ const TextPortfolio = props => (
         tech={<FontAwesomeIcon icon={faReact} />}
         title="This website"
         date="03/2019 - 05/2019"
+        codeLink="https://github.com/racmariano/mariano.dev"
         description={
           <p>
             My first front-end project! It uses Gatsby as a framework and
