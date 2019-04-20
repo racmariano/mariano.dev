@@ -56,6 +56,7 @@ const Header = () => {
           <HeaderLink to="/about/">about</HeaderLink>
           <HeaderLink to="/portfolio/">portfolio</HeaderLink>
           <HeaderLink to="/resume/">resume</HeaderLink>
+          <HeaderLink to="">home</HeaderLink>
         </div>
       </HeadContent>
     </Head>

@@ -2,7 +2,7 @@ import React from "react"
 import { css } from "@emotion/core"
 
 import Description from "../components/Description"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import BubbleCarousel from "../components/BubbleCarousel"
 
 const TextAbout = props => (
