@@ -1,19 +1,21 @@
 import React from "react"
 import { Link } from "gatsby"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
 import styled from "@emotion/styled"
 
 import { rhythm } from "../utils/typography"
 
-const Head = styled.header`
-  background: ${props => props.theme.divisors.color};
-  width: 100%;
+const Head = styled.div`
   height: ${props => props.theme.divisors.headerHeight};
+  background: ${props => props.theme.divisors.color};
+  border-bottom: ${props => props.theme.divisors.border};
+`
+
+const HeadContent = styled.div`
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: ${props => props.theme.divisors.border};
 `
 
 const HeaderLink = styled(Link)`
@@ -21,8 +23,7 @@ const HeaderLink = styled(Link)`
   color: ${props => props.theme.divisors.text};
   display: inline-block;
   float: right;
-  margin-right: 2rem;
-  padding: ${rhythm(1)};
+  padding: ${rhythm(2)};
   font-size: 2rem;
   text-shadow: none;
   :hover {
@@ -30,10 +31,11 @@ const HeaderLink = styled(Link)`
   }
 `
 
-const HeaderText = styled.div`
+const HeaderText = styled.h1`
   color: ${props => props.theme.divisors.text};
   font-size: 3rem;
   padding: ${rhythm(1)};
+  height: 100%;
 `
 
 const Header = () => {
@@ -48,14 +50,16 @@ const Header = () => {
 
   return (
     <Head>
-      <HeaderText>
-        for {coolThings[Math.floor(Math.random() * coolThings.length)]}
-      </HeaderText>
-      <div>
-        <HeaderLink to="/about/">about</HeaderLink>
-        <HeaderLink to="/portfolio/">portfolio</HeaderLink>
-        <HeaderLink to="/resume/">resume</HeaderLink>
-      </div>
+      <HeadContent>
+        <HeaderText>
+          for {coolThings[Math.floor(Math.random() * coolThings.length)]}
+        </HeaderText>
+        <div>
+          <HeaderLink to="/about/">about</HeaderLink>
+          <HeaderLink to="/portfolio/">portfolio</HeaderLink>
+          <HeaderLink to="/resume/">resume</HeaderLink>
+        </div>
+      </HeadContent>
     </Head>
   )
 }

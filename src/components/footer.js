@@ -24,7 +24,7 @@ const FooterImages = () => {
         align-items: center;
         justify-content: flex-end;
         height: 100%;
-        width: 95%;
+        padding-right: 20px;
       `}
     >
       <ImageLink href="mailto:rachelle.mariano@gmail.com">

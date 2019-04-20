@@ -5,10 +5,11 @@ const colors = {
 
 const divisors = {
   color: "#f30067",
+  borderColor: "#00d1cd",
   border: "15px solid #00d1cd",
   text: "#eaeaea",
-  headerHeight: "150px",
-  footerHeight: "100px",
+  headerHeight: "120px",
+  footerHeight: "90px",
 }
 
 const images = {

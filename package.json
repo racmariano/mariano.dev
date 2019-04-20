@@ -12,7 +12,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "emotion-theming": "^10.0.9",
-    "gatsby": "^2.3.6",
+    "gatsby": "^2.3.25",
     "gatsby-image": "^2.0.33",
     "gatsby-plugin-emotion": "^4.0.6",
     "gatsby-plugin-manifest": "^2.0.24",
@@ -31,6 +31,7 @@
     "react-modal": "^3.8.1",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
+    "typography-theme-st-annes": "^0.16.19",
     "typography-theme-twin-peaks": "^0.16.19"
   },
   "devDependencies": {

@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 
 import { css } from "@emotion/core"
 
-import technologist from "../images/general/woman_technologist.svg"
 import meme from "../images/portfolio_meme.jpg"
 
 const TextPortfolio = props => (
@@ -12,20 +11,7 @@ const TextPortfolio = props => (
       width: 50%;
     `}
   >
-    <div
-      css={css`
-        display: flex;
-        align-items: flex-end;
-      `}
-    >
-      <img
-        src={technologist}
-        alt="Portfolio!"
-        style={{ width: 64, float: "left" }}
-      />
-      <h1>Portfolio</h1>
-    </div>
-
+    <h1>👩‍💻 Portfolio</h1>
     <div
       css={css`
         padding-top: 25px;

@@ -39,8 +39,7 @@ const Layout = ({ children }) => (
             height: 100vh;
           `}
         >
-          <Header siteTitle={data.site.siteMetadata.title} />
-
+          <Header />
           <Body>
             <main>{children}</main>
           </Body>

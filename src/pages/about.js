@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 
 import { css } from "@emotion/core"
 
-import hello from "../images/general/woman_raising_hand.svg"
 import BubbleCarousel from "../components/BubbleCarousel"
 
 const TextAbout = props => (
@@ -15,15 +14,7 @@ const TextAbout = props => (
       padding-left: 2%;
     `}
   >
-    <div
-      css={css`
-        display: flex;
-        align-items: flex-end;
-      `}
-    >
-      <img src={hello} alt="Hello!" style={{ width: 64, float: "left" }} />
-      <h1>Hi, I'm Rachelle! Nice to meet you!</h1>
-    </div>
+    <h1>🙋‍ Hi, I'm Rachelle! Nice to meet you!</h1>
     <div
       css={css`
         padding-top: 25px;
