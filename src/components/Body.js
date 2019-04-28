@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   align-items: center;
   flex-grow: 1;
   overflow: auto;
-  padding: 4%;
+  padding: 2%;
 `
 
 const Body = props => (

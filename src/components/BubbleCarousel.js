@@ -3,6 +3,7 @@ import Modal from "react-modal"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { css, keyframes } from "@emotion/core"
+import { withTheme } from "emotion-theming"
 
 // Modal.setAppElement("#root")
 
@@ -31,66 +32,73 @@ const carouselImageQuery = graphql`
 
 const loop = keyframes`
   0%
-    {top: -100%; left: 0%; }
+    {top: -120vw; left: 0vw; }
   49%
-    {top: 60%; left: 0%; }
+    {top: 120vw; left: 0vw; }
   50%
-    {top: 60%; left: 80%; }
+    {top: 120vw; left: 25vw; }
   100%
-    {top: -100%; left: 80%; }
+    {top: -120vw; left: 25vw; }
 `
 
-const Bubble = props => (
-  <div
-    onClick={props.onClick}
-    css={css`
-      position: relative;
-      display: inline-block;
-      animation: ${loop} 40s linear infinite;
-      height: 200px;
-      width: 200px;
-    `}
-  >
-    <Img
-      alt={props.alt}
-      fixed={props.imgData.childImageSharp.fixed}
-      css={css`
-        border-radius: 50%;
-        max-height: 100%;
-        max-width: 100%;
-      `}
-    />
-  </div>
-)
+const scroll = keyframes`
+0%
+  {left: -150%;}
+100%
+  {left: 150%;}
+`
 
-const Track = props => (
+const Bubble = withTheme(props => {
+  return (
+    <div
+      onClick={props.onClick}
+      css={css`
+        position: relative;
+        animation: ${props.theme.isMobile ? scroll : loop} 10s linear infinite;
+        width: 20vw;
+        height: 20vw;
+      `}
+    >
+      <Img
+        alt={props.alt}
+        fixed={props.imgData.childImageSharp.fixed}
+        css={css`
+          border-radius: 50%;
+          max-height: 100%;
+          max-width: 100%;
+        `}
+      />
+    </div>
+  )
+})
+
+const Track = withTheme(props => (
   <div
     css={css`
+      width: 100%;
       display: flex;
-      flex-direction: column;
-      position: relative;
-      justify-content: space-between;
-      width: 50%;
-      height: 200%;
+      flex-direction: ${props.theme.isMobile ? "row" : "column"};
+      justify-content: space-evenly;
+      padding: 2%;
+      overflow: hidden;
     `}
   >
     {props.children}
   </div>
-)
+))
 
 const BubbleCarousel = () => {
   const imageQuery = useStaticQuery(carouselImageQuery)
   const textDescriptions = {
     garden:
-      "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture. Weeaboo a.f.",
+      "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture. I hope to live there for 6 months to a year at some point!",
     glacier:
       "Daniel and I climbing glaciers in Iceland! We're always trying to go on new adventures.",
     grass: "Walking through a sea of grass. Nature is lit!",
     owl: "Owl cafe in Tokyo, Japan! Cute things are the best!",
-    yarn:
-      "I like to crochet while commuting (to work or skiing), and while watching anime!",
+    yarn: "I like to crochet while commuting (to work or skiing).",
     zuly:
-      "This is Zuly, my fur baby and the love of my life! ...not counting Daniel.",
+      "This is Zuly, my cat! She's a handful. She'll meow at the door when we get home to get let out.",
   }
 
   // Hooks!
@@ -103,6 +111,7 @@ const BubbleCarousel = () => {
     for (const [imageKey, imageData] of Object.entries(imageQuery)) {
       bubbles.push(
         <Bubble
+          key={imageKey}
           onClick={() => {
             toggleModal(true)
             selectImage(imageData)
@@ -119,11 +128,9 @@ const BubbleCarousel = () => {
   return (
     <div
       css={css`
-        width: 50%;
+        width: 100%;
         height: 100%;
         display: flex;
-        justify-content: space-evenly;
-        overflow: hidden;
       `}
     >
       <Modal isOpen={modalVisible} onRequestClose={() => toggleModal(false)}>

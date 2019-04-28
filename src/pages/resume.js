@@ -33,7 +33,6 @@ const ResumeAccordion = styled.div`
     border: 5px solid ${props => props.theme.divisors.borderColor};
     color: ${props => props.theme.divisors.color};
     padding: 2vh;
-    margin: 2vh;
     display: block;
   }
 `
@@ -67,6 +66,7 @@ const ResumeElement = withTheme(
           css={css`
             font-size: ${rhythm(1.4)};
             font-weight: bold;
+            margin: 2vh;
           `}
         >
           {activity}
@@ -75,6 +75,7 @@ const ResumeElement = withTheme(
           css={css`
             font-size: ${rhythm(1)};
             font-weight: bold;
+            margin: 2vh;
           `}
         >
           {timerange}

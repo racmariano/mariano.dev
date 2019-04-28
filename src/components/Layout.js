@@ -53,7 +53,7 @@ const Layout = props => {
             <Body>
               <div
                 css={css`
-                  margin-bottom: 1%;
+                  margin-bottom: 2%;
                 `}
               >
                 <h1>

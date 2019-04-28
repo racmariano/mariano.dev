@@ -47,10 +47,10 @@ const HeaderLinks = withTheme(({ theme }) => (
       justify-content: center;
     `}
   >
-    <HeaderLink to="/about/">about</HeaderLink>
-    <HeaderLink to="/portfolio/">portfolio</HeaderLink>
-    <HeaderLink to="/resume/">resume</HeaderLink>
     <HeaderLink to="/">home</HeaderLink>
+    <HeaderLink to="/resume/">resume</HeaderLink>
+    <HeaderLink to="/portfolio/">portfolio</HeaderLink>
+    <HeaderLink to="/about/">about</HeaderLink>
   </div>
 ))
 
