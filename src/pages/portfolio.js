@@ -2,17 +2,11 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPython, faReact } from "@fortawesome/free-brands-svg-icons"
 import { css } from "@emotion/core"
-import styled from "@emotion/styled"
 
 import Description from "../components/Description"
 import Layout from "../components/Layout"
 
 import meme from "../images/portfolio_meme.jpg"
-
-const PortfolioContainer = styled.div`
-  width: 50%;
-  padding: 20px;
-`
 
 const PortfolioProject = props => (
   <div
@@ -32,6 +26,7 @@ const PortfolioProject = props => (
       <div
         css={css`
           display: flex;
+          align-items: center;
         `}
       >
         {props.tech}
@@ -55,8 +50,7 @@ const PortfolioProject = props => (
 )
 
 const TextPortfolio = props => (
-  <PortfolioContainer>
-    <h1>👩‍💻 Portfolio</h1>
+  <div>
     <Description>
       <p>
         Klaviyo has been my first job after grad school. It's a ton of fun, and
@@ -91,16 +85,17 @@ const TextPortfolio = props => (
             My first Django project! I collaborated on it with my boyfriend. It
             used scrapy to get ski resort conditions and the Google Maps API to
             get driving information. The end result was a table that could be
-            sorted on snow or driving time/distance.
+            sorted on snow or driving time/distance. I've come a long way since
+            this!
           </p>
         }
       />
     </Description>
-  </PortfolioContainer>
+  </div>
 )
 
 const PortfolioPage = () => (
-  <Layout>
+  <Layout headerLyric="👩‍💻 There's a million things I haven't done, but just you wait">
     <div
       css={css`
         display: flex;
@@ -108,17 +103,15 @@ const PortfolioPage = () => (
       `}
     >
       <TextPortfolio />
-      <PortfolioContainer>
-        <div
-          css={css`
-            width: 100%;
-            display: flex;
-            justify-content: center;
-          `}
-        >
-          <img src={meme} alt="While I love my job, it is consuming." />
-        </div>
-      </PortfolioContainer>
+      <div
+        css={css`
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        `}
+      >
+        <img src={meme} alt="While I love my job, it is consuming." />
+      </div>
     </div>
   </Layout>
 )

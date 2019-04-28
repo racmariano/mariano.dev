@@ -6,20 +6,24 @@ const colors = {
 const divisors = {
   color: "#f30067",
   borderColor: "#00d1cd",
-  border: "15px solid #00d1cd",
+  border: "10px solid #00d1cd",
   text: "#eaeaea",
-  headerHeight: "120px",
-  footerHeight: "90px",
+  headerHeight: "90px",
+  footerHeight: "65px",
 }
 
 const images = {
-  width: "64px",
+  width: "36px",
 }
 
-const theme = {
-  colors,
-  images,
-  divisors,
+const getTheme = isMobile => {
+  const theme = {
+    colors,
+    images,
+    divisors,
+    isMobile,
+  }
+  return theme
 }
 
-export default theme
+export default getTheme

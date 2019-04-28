@@ -11,10 +11,8 @@ const TextAbout = props => (
       width: 50%;
       display: flex;
       flex-direction: column;
-      padding: 20px;
     `}
   >
-    <h1>🙋‍ Hi, I'm Rachelle! Nice to meet you!</h1>
     <Description>
       <p>I'm a software developer who currently lives and works in Boston.</p>
       <p>
@@ -44,7 +42,7 @@ const TextAbout = props => (
 )
 
 const AboutPage = props => (
-  <Layout>
+  <Layout emoji="🙋‍" headerLyric="I'm young, scrappy, and hungry">
     <div
       css={css`
         display: flex;

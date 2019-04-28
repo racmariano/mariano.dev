@@ -24,6 +24,7 @@
     "gatsby-transformer-sharp": "^2.1.17",
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
+    "react-burger-menu": "^2.6.10",
     "react-collapsible": "^2.6.0",
     "react-dom": "^16.8.4",
     "react-emotion": "^10.0.0",
@@ -32,7 +33,8 @@
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-st-annes": "^0.16.19",
-    "typography-theme-twin-peaks": "^0.16.19"
+    "typography-theme-twin-peaks": "^0.16.19",
+    "use-media": "^1.3.0"
   },
   "devDependencies": {
     "prettier": "^1.16.4"

@@ -2,6 +2,7 @@ import React from "react"
 import Collapsible from "react-collapsible"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
+import { withTheme } from "emotion-theming"
 import { rhythm } from "../utils/typography"
 
 import Description from "../components/Description"
@@ -28,15 +29,11 @@ const LogoImg = styled.img`
 `
 
 const ResumeAccordion = styled.div`
-  .Collapsible {
-    width: 80%;
-  }
   .Collapsible__trigger {
     border: 5px solid ${props => props.theme.divisors.borderColor};
     color: ${props => props.theme.divisors.color};
-    font-size: 40px;
-    padding: 20px;
-    margin: 10px;
+    padding: 2vh;
+    margin: 2vh;
     display: block;
   }
 `
@@ -46,54 +43,55 @@ const ResumeDivisor = styled.div`
   margin-bottom: ${rhythm(1)};
 `
 
-const ResumeElement = props => (
-  <div
-    css={css`
-      display: flex;
-      flex-direction: column;
-      margin: ${rhythm(1)};
-    `}
-  >
+const ResumeElement = withTheme(
+  ({ theme, imageSource, imageAlt, timerange, activity, description }) => (
     <div
       css={css`
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        margin: ${rhythm(1)};
       `}
     >
-      <div>
-        <LogoImg src={props.imageSource} alt={props.imageAlt} />
-      </div>
       <div
         css={css`
-          font-size: ${rhythm(1.4)};
-          font-weight: bold;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-direction: ${theme.isMobile ? "column" : "row"};
         `}
       >
-        {props.activity}
+        <div>
+          <LogoImg src={imageSource} alt={imageAlt} />
+        </div>
+        <div
+          css={css`
+            font-size: ${rhythm(1.4)};
+            font-weight: bold;
+          `}
+        >
+          {activity}
+        </div>
+        <div
+          css={css`
+            font-size: ${rhythm(1)};
+            font-weight: bold;
+          `}
+        >
+          {timerange}
+        </div>
       </div>
-      <div
-        css={css`
-          font-size: ${rhythm(1)};
-          font-weight: bold;
-        `}
-      >
-        {props.timerange}
-      </div>
-    </div>
 
-    <div>{props.description}</div>
-  </div>
+      <div>{description}</div>
+    </div>
+  )
 )
 
-const ResumePage = () => (
-  <Layout>
-    <div
-      css={css`
-        padding: 20px;
-      `}
+const ResumePage = props => {
+  return (
+    <Layout
+      emoji="👩‍🎓 "
+      headerLyric="Look at where you are, look at where you started"
     >
-      <h1>👩‍🎓 Resume</h1>
       <Description>
         <p>
           <a href="">Download a streamlined PDF version of my resume here!</a>
@@ -215,11 +213,14 @@ const ResumePage = () => (
                   minored in chemistry, French, and mathematics.
                 </p>
                 <p>
-                  At UM, I served on the executive board of the Anime Club. We
-                  raised money for Miami Children's Hospital by hosting
-                  ExtraLife events each fall. Each spring, we hosted Miami
-                  Hurricon, a free anime convention that drew thousands of
-                  attendees.
+                  At UM, I served on the executive board of the Anime Club. Each
+                  fall we raised money for Miami Children's Hospital by hosting{" "}
+                  <a href="https://www.extra-life.org/">ExtraLife</a>. Each
+                  spring we hosted{" "}
+                  <a href="https://www.themiamihurricane.com/2013/04/14/hurricons-anime-celebration-transforms-campus/">
+                    Miami Hurricon
+                  </a>
+                  , a free anime convention that drew thousands of attendees.
                 </p>
                 <p>
                   I also played on the women's ultimate frisbee team in my
@@ -332,8 +333,8 @@ const ResumePage = () => (
           />
         </Collapsible>
       </ResumeAccordion>
-    </div>
-  </Layout>
-)
+    </Layout>
+  )
+}
 
 export default ResumePage
