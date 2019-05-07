@@ -63,14 +63,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-size: 2em;
-}
-mark {
-  background-color: #ff0;
-  color: #000;
-}
-small {
-  font-size: 80%;
+  display: inline;
 }
 sub,
 sup {

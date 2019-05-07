@@ -9,7 +9,7 @@ const ImageLink = styled.a`
   padding: 1rem;
   background-image: None;
   color: ${props => props.theme.divisors.text};
-  font-size: 64px;
+  font-size: 48px;
   :hover {
     color: black;
   }

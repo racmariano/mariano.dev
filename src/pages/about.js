@@ -1,5 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
+import { withTheme } from "emotion-theming"
 
 import Description from "../components/Description"
 import Layout from "../components/Layout"
@@ -8,13 +9,10 @@ import BubbleCarousel from "../components/BubbleCarousel"
 const TextAbout = props => (
   <div
     css={css`
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      padding: 20px;
+      width: 100%;
+      padding: 2vh;
     `}
   >
-    <h1>🙋‍ Hi, I'm Rachelle! Nice to meet you!</h1>
     <Description>
       <p>I'm a software developer who currently lives and works in Boston.</p>
       <p>
@@ -43,18 +41,26 @@ const TextAbout = props => (
   </div>
 )
 
-const AboutPage = props => (
-  <Layout>
-    <div
-      css={css`
-        display: flex;
-        height: 100%;
-        justify-content: center;
-      `}
-    >
+const AboutWrapper = withTheme(props => (
+  <div
+    css={css`
+      display: flex;
+      flex-direction: ${props.theme.isMobile ? "column" : "row"};
+      width: 100vw;
+      height: 100vh;
+      overflow: scroll;
+    `}
+  >
+    {props.children}
+  </div>
+))
+
+const AboutPage = () => (
+  <Layout emoji="🙋‍" headerLyric="I'm young, scrappy, and hungry">
+    <AboutWrapper>
       <TextAbout />
       <BubbleCarousel />
-    </div>
+    </AboutWrapper>
   </Layout>
 )
 

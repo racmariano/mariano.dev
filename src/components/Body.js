@@ -5,14 +5,15 @@ const Wrapper = styled.div`
   background: ${props => props.theme.colors.body};
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex-grow: 1;
   overflow: auto;
-  padding: 10px;
+  padding: 2%;
 `
 
-const Body = ({ children }) => (
+const Body = props => (
   <Wrapper>
-    <Fragment>{children}</Fragment>
+    <Fragment>{props.children}</Fragment>
   </Wrapper>
 )
 
