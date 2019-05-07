@@ -4,6 +4,10 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { css, keyframes } from "@emotion/core"
 import { withTheme } from "emotion-theming"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+
+import Description from "./Description"
 
 // Modal.setAppElement("#root")
 
@@ -34,27 +38,30 @@ const loop = keyframes`
   0%
     {top: -120vw; left: 0vw; }
   49%
-    {top: 120vw; left: 0vw; }
+    {top: 100vw; left: 0vw; }
   50%
-    {top: 120vw; left: 25vw; }
+    {top: 100vw; left: 25vw; }
   100%
     {top: -120vw; left: 25vw; }
 `
 
 const scroll = keyframes`
 0%
-  {left: -150%;}
+  {left: -125%;}
 100%
-  {left: 150%;}
+  {left: 125%;}
 `
 
 const Bubble = withTheme(props => {
+  const animationTime = props.theme.isMobile ? "20s" : "40s"
+
   return (
     <div
       onClick={props.onClick}
       css={css`
         position: relative;
-        animation: ${props.theme.isMobile ? scroll : loop} 10s linear infinite;
+        animation: ${props.theme.isMobile ? scroll : loop} ${animationTime}
+          linear infinite;
         width: 20vw;
         height: 20vw;
       `}
@@ -75,36 +82,43 @@ const Bubble = withTheme(props => {
 const Track = withTheme(props => (
   <div
     css={css`
-      width: 100%;
       display: flex;
       flex-direction: ${props.theme.isMobile ? "row" : "column"};
-      justify-content: space-evenly;
-      padding: 2%;
-      overflow: hidden;
     `}
   >
     {props.children}
   </div>
 ))
 
-const BubbleCarousel = () => {
+const BubbleCarousel = withTheme(props => {
   const imageQuery = useStaticQuery(carouselImageQuery)
   const textDescriptions = {
     garden:
       "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture. I hope to live there for 6 months to a year at some point!",
     glacier:
-      "Daniel and I climbing glaciers in Iceland! We're always trying to go on new adventures.",
-    grass: "Walking through a sea of grass. Nature is lit!",
+      "Daniel (the bae) and I climbing glaciers in Iceland! We're always trying to go on new adventures.",
+    grass: "Walking through a sea of grass. Nature is really beautiful.",
     owl: "Owl cafe in Tokyo, Japan! Cute things are the best!",
     yarn: "I like to crochet while commuting (to work or skiing).",
     zuly:
-      "This is Zuly, my cat! She's a handful. She'll meow at the door when we get home to get let out.",
+      "This is Zuly, my cat! She's a handful. She likes sniffing around the apartment building, playing with string, and sitting on my lap.",
   }
 
   // Hooks!
   const [modalVisible, toggleModal] = useState(false)
   const [selectedImage, selectImage] = useState(imageQuery.glacier)
   const [selectedText, selectText] = useState("Hello, world!")
+
+  const modalStyles = {
+    content: {
+      display: "flex",
+      width: props.theme.isMobile ? "auto" : "80vw",
+      height: props.theme.isMobile ? "80vh" : "auto",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+    },
+  }
 
   const createBubbles = () => {
     var bubbles = []
@@ -130,41 +144,60 @@ const BubbleCarousel = () => {
       css={css`
         width: 100%;
         height: 100%;
-        display: flex;
+        overflow: hidden;
       `}
     >
-      <Modal isOpen={modalVisible} onRequestClose={() => toggleModal(false)}>
-        <button onClick={() => toggleModal(false)}>close!</button>
+      <Modal
+        style={modalStyles}
+        isOpen={modalVisible}
+        onRequestClose={() => toggleModal(false)}
+      >
+        <div
+          onClick={() => toggleModal(false)}
+          css={css`
+            font-size: 50px;
+          `}
+        >
+          <FontAwesomeIcon icon={faTimesCircle} />
+        </div>
         <div
           css={css`
             display: flex;
-            justify-content: space-evenly;
-            height: 100%;
+            align-items: center;
+            justify-content: ${props.theme.isMobile
+              ? "center"
+              : "space-between"};
+            width: 100%;
+            flex-direction: ${props.theme.isMobile ? "column" : "row"};
           `}
         >
           <div
             css={css`
-              display: flex;
-              align-items: center;
-              justify-content: center;
+              max-width: 60vw;
+              max-height: 60vw;
             `}
           >
-            <Img fixed={selectedImage.childImageSharp.fixed} />
+            <Img
+              css={css`
+                max-width: 100%;
+                max-height: 100%;
+              `}
+              fixed={selectedImage.childImageSharp.fixed}
+            />
           </div>
-          <div
+          <Description
             css={css`
-              display: flex;
-              align-items: center;
-              justify-content: center;
+              width: 50%;
+              padding: 2vw;
             `}
           >
             {selectedText}
-          </div>
+          </Description>
         </div>
       </Modal>
       <Track>{createBubbles()}</Track>
     </div>
   )
-}
+})
 
 export default BubbleCarousel

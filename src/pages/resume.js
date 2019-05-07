@@ -1,4 +1,5 @@
 import React from "react"
+import { withPrefix } from "gatsby"
 import Collapsible from "react-collapsible"
 import { css } from "@emotion/core"
 import styled from "@emotion/styled"
@@ -25,7 +26,7 @@ const PublicationList = props => (
 )
 
 const LogoImg = styled.img`
-  width: 300px;
+  width: 400px;
 `
 
 const ResumeAccordion = styled.div`
@@ -33,6 +34,7 @@ const ResumeAccordion = styled.div`
     border: 5px solid ${props => props.theme.divisors.borderColor};
     color: ${props => props.theme.divisors.color};
     padding: 2vh;
+    margin: 1vh;
     display: block;
   }
 `
@@ -95,7 +97,12 @@ const ResumePage = props => {
     >
       <Description>
         <p>
-          <a href="">Download a streamlined PDF version of my resume here!</a>
+          <a
+            href={withPrefix("/rachelle_mariano_resume_2019.pdf")}
+            target="blank"
+          >
+            Download a streamlined PDF version of my resume here!
+          </a>
         </p>
       </Description>
       <ResumeAccordion>
@@ -108,8 +115,10 @@ const ResumePage = props => {
             description={
               <Description>
                 <p>
-                  Since joining Klaviyo, I've worked on the integrations and
-                  data augmentation teams.
+                  <a href="https://www.klaviyo.com/">Klaviyo</a> is an eCommerce
+                  marketing and analytics startup that uses Django to help
+                  businesses grow. Since joining Klaviyo, I've worked on the
+                  integrations and data augmentation teams.
                 </p>
                 <p>
                   The integrations team was responsible for processing data from
@@ -121,6 +130,11 @@ const ResumePage = props => {
                     list-style: none;
                   `}
                 >
+                  <li>
+                    <a href="https://help.klaviyo.com/hc/en-us/articles/115000107112-Integrate-with-Typeform">
+                      Typeform Integration
+                    </a>
+                  </li>
                   <li>
                     <a href="https://www.klaviyo.com/blog/capture-customer-back-stock-flows">
                       Back In Stock
@@ -173,7 +187,11 @@ const ResumePage = props => {
                   to regeneration.
                 </p>
                 <p>
-                  In Jessica Whited's lab, we used{" "}
+                  In{" "}
+                  <a href="https://www.whitedlab.com/">
+                    Dr. Jessica Whited's lab
+                  </a>
+                  , we used{" "}
                   <a href="https://dx.doi.org/10.1016%2Fj.cell.2015.04.044">
                     single cell RNA sequencing
                   </a>{" "}
