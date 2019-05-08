@@ -22,11 +22,11 @@ import Footer from "./Footer"
 const Layout = props => {
   let [isMobile, setIsMobile] = useState(null)
   const theme = getTheme(isMobile)
-  const isSmall = useMedia({ maxWidth: 1550 })
+  const isMobileSize = useMedia({ maxWidth: 1550 })
 
   useLayoutEffect(() => {
-    setIsMobile(isSmall)
-  }, [isSmall])
+    setIsMobile(isMobileSize)
+  }, [isMobileSize])
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,12 +53,12 @@ const Layout = props => {
             <Body>
               <div
                 css={css`
-                  margin-bottom: 2%;
+                  margin-bottom: 3vh;
                 `}
               >
                 <h1>
-                  <span role="img" aria-label="Emoji person">
-                    {props.emoji}
+                  <span role="img" aria-label="Music note">
+                    🎵
                   </span>{" "}
                   {props.headerLyric}{" "}
                   <span role="img" aria-label="Music note">

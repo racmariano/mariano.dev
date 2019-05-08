@@ -1,7 +1,6 @@
 import React from "react"
 import { css } from "@emotion/core"
 
-import Description from "../components/Description"
 import Layout from "../components/Layout"
 
 import catFly from "../images/general/cat_fly.gif"
@@ -39,19 +38,17 @@ const IndexEntry = ({ gif, date, newsBit }) => (
 )
 
 const IndexPage = () => (
-  <Layout emoji="📰" headerLyric="Look around, look around">
-    <Description>
-      <IndexEntry
-        gif={catFly}
-        date="05/06/19"
-        newsBit="I went to PyCon, and it was AWESOME."
-      />
-      <IndexEntry
-        gif={catType}
-        date="04/20/19"
-        newsBit="The first version of the site is going live! Whoot!"
-      />
-    </Description>
+  <Layout headerLyric="Look around, look around">
+    <IndexEntry
+      gif={catFly}
+      date="05/06/19"
+      newsBit="I went to PyCon, and it was AWESOME."
+    />
+    <IndexEntry
+      gif={catType}
+      date="04/20/19"
+      newsBit="The first version of the site is going live! Whoot!"
+    />
   </Layout>
 )
 

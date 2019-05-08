@@ -6,8 +6,7 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 
 const ImageLink = styled.a`
-  padding: 1rem;
-  background-image: None;
+  padding: 20px;
   color: ${props => props.theme.divisors.text};
   font-size: 48px;
   :hover {
@@ -41,7 +40,6 @@ const FooterImages = () => {
 
 const Foot = styled.footer`
   background: ${props => props.theme.divisors.color};
-  width: 100%;
   height: ${props => props.theme.divisors.footerHeight};
   border-top: ${props => props.theme.divisors.border};
 `

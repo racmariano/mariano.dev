@@ -7,8 +7,7 @@ import { withTheme } from "emotion-theming"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 
-import Description from "./Description"
-
+// TODO: Modal needs to be anchored to root.
 // Modal.setAppElement("#root")
 
 const carouselImageQuery = graphql`
@@ -38,9 +37,9 @@ const loop = keyframes`
   0%
     {top: -120vw; left: 0vw; }
   49%
-    {top: 100vw; left: 0vw; }
+    {top: 60vw; left: 0vw; }
   50%
-    {top: 100vw; left: 25vw; }
+    {top: 60vw; left: 25vw; }
   100%
     {top: -120vw; left: 25vw; }
 `
@@ -53,7 +52,7 @@ const scroll = keyframes`
 `
 
 const Bubble = withTheme(props => {
-  const animationTime = props.theme.isMobile ? "20s" : "40s"
+  const animationTime = props.theme.isMobile ? "20s" : "30s"
 
   return (
     <div
@@ -82,6 +81,9 @@ const Bubble = withTheme(props => {
 const Track = withTheme(props => (
   <div
     css={css`
+      height: 100%;
+      overflow: hidden;
+      margin: 2vh;
       display: flex;
       flex-direction: ${props.theme.isMobile ? "row" : "column"};
     `}
@@ -112,7 +114,7 @@ const BubbleCarousel = withTheme(props => {
   const modalStyles = {
     content: {
       display: "flex",
-      width: props.theme.isMobile ? "auto" : "80vw",
+      width: "80vw",
       height: props.theme.isMobile ? "80vh" : "auto",
       top: "50%",
       left: "50%",
@@ -144,7 +146,6 @@ const BubbleCarousel = withTheme(props => {
       css={css`
         width: 100%;
         height: 100%;
-        overflow: hidden;
       `}
     >
       <Modal
@@ -153,46 +154,40 @@ const BubbleCarousel = withTheme(props => {
         onRequestClose={() => toggleModal(false)}
       >
         <div
-          onClick={() => toggleModal(false)}
-          css={css`
-            font-size: 50px;
-          `}
-        >
-          <FontAwesomeIcon icon={faTimesCircle} />
-        </div>
-        <div
           css={css`
             display: flex;
             align-items: center;
-            justify-content: ${props.theme.isMobile
-              ? "center"
-              : "space-between"};
-            width: 100%;
+            justify-content: center;
             flex-direction: ${props.theme.isMobile ? "column" : "row"};
+            height: 100%;
+            width: 100%;
           `}
         >
           <div
+            onClick={() => toggleModal(false)}
             css={css`
-              max-width: 60vw;
-              max-height: 60vw;
+              font-size: 30px;
+              float: left;
+              width: 100%;
             `}
           >
-            <Img
-              css={css`
-                max-width: 100%;
-                max-height: 100%;
-              `}
-              fixed={selectedImage.childImageSharp.fixed}
-            />
+            <FontAwesomeIcon icon={faTimesCircle} />
           </div>
-          <Description
+          <Img
+            css={css`
+              max-width: 100%;
+              max-height: 100%;
+              margin: 2vh;
+            `}
+            fixed={selectedImage.childImageSharp.fixed}
+          />
+          <div
             css={css`
               width: 50%;
-              padding: 2vw;
             `}
           >
             {selectedText}
-          </Description>
+          </div>
         </div>
       </Modal>
       <Track>{createBubbles()}</Track>

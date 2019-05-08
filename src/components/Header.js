@@ -24,16 +24,14 @@ const ExpandedHeadContent = styled.div`
 
 const HeaderText = styled.h1`
   color: ${props => props.theme.divisors.text};
-  font-size: ${rhythm(2)};
-  height: 100%;
+  font-size: ${rhythm(1.5)};
   padding: 10px;
 `
+
 const HeaderLink = styled(Link)`
-  background-image: None;
   color: ${props => props.theme.divisors.text};
-  float: right;
   padding: ${rhythm(1.5)};
-  font-size: 2rem;
+  font-size: ${rhythm(1)};
   }
 `
 
@@ -72,19 +70,16 @@ const ExpandedHeader = React.memo(() => {
           {coolThings[Math.floor(Math.random() * coolThings.length)]}
         </span>
       </HeaderText>
-      <HeaderLinks isMobile={true} />
+      <HeaderLinks />
     </ExpandedHeadContent>
   )
 })
 
 const HamburgerContainer = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   .bm-burger-button {
     position: relative;
-    margin: 20%;
-    margin-left: 30%;
+    margin: 30%;
     width: 50px;
     height: 50px;
   }
@@ -96,17 +91,12 @@ const HamburgerContainer = styled.div`
     background: ${props => props.theme.divisors.borderColor};
   }
 
-  .bm-cross-button {
-    height: 50px;
-    width: 50px;
-  }
-
   .bm-burger-bars {
     background: white;
   }
 
   .bm-burger-bars-hover {
-    background: #000000;
+    background: black;
   }
 `
 
@@ -116,7 +106,7 @@ const HamburgerHeader = () => (
       width={"40%"}
       customCrossIcon={<FontAwesomeIcon icon={faTimesCircle} color="white" />}
     >
-      <HeaderLinks isMobile={false} />
+      <HeaderLinks />
     </Menu>
   </HamburgerContainer>
 )
