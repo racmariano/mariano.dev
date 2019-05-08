@@ -81,8 +81,8 @@ const Bubble = withTheme(props => {
 const Track = withTheme(props => (
   <div
     css={css`
-      overflow: hidden;
       height: 100%;
+      overflow: hidden;
       margin: 2vh;
       display: flex;
       flex-direction: ${props.theme.isMobile ? "row" : "column"};
@@ -154,22 +154,25 @@ const BubbleCarousel = withTheme(props => {
         onRequestClose={() => toggleModal(false)}
       >
         <div
-          onClick={() => toggleModal(false)}
-          css={css`
-            font-size: 30px;
-          `}
-        >
-          <FontAwesomeIcon icon={faTimesCircle} />
-        </div>
-        <div
           css={css`
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: ${props.theme.isMobile ? "column" : "row"};
             height: 100%;
+            width: 100%;
           `}
         >
+          <div
+            onClick={() => toggleModal(false)}
+            css={css`
+              font-size: 30px;
+              float: left;
+              width: 100%;
+            `}
+          >
+            <FontAwesomeIcon icon={faTimesCircle} />
+          </div>
           <Img
             css={css`
               max-width: 100%;
