@@ -5,8 +5,9 @@ import { css } from "@emotion/core"
 import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
 import { rhythm } from "../utils/typography"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faFilePdf } from "@fortawesome/free-solid-svg-icons"
 
-import Description from "../components/Description"
 import Layout from "../components/Layout"
 import klaviyo from "../images/resume_page/klaviyo_logo.png"
 import harvard from "../images/resume_page/harvard_logo.png"
@@ -25,10 +26,6 @@ const PublicationList = props => (
   </div>
 )
 
-const LogoImg = styled.img`
-  width: 400px;
-`
-
 const ResumeAccordion = styled.div`
   .Collapsible__trigger {
     border: 5px solid ${props => props.theme.divisors.borderColor};
@@ -41,7 +38,6 @@ const ResumeAccordion = styled.div`
 
 const ResumeDivisor = styled.div`
   border-bottom: 3px solid ${props => props.theme.divisors.borderColor};
-  margin-bottom: ${rhythm(1)};
 `
 
 const ResumeElement = withTheme(
@@ -50,7 +46,7 @@ const ResumeElement = withTheme(
       css={css`
         display: flex;
         flex-direction: column;
-        margin: ${rhythm(1)};
+        margin: 2vh;
       `}
     >
       <div
@@ -59,25 +55,22 @@ const ResumeElement = withTheme(
           justify-content: space-between;
           align-items: center;
           flex-direction: ${theme.isMobile ? "column" : "row"};
+          margin: 2vh;
         `}
       >
-        <div>
-          <LogoImg src={imageSource} alt={imageAlt} />
-        </div>
+        <img src={imageSource} alt={imageAlt} width="300px" />
         <div
           css={css`
-            font-size: ${rhythm(1.4)};
+            font-size: ${rhythm(1.0)};
             font-weight: bold;
-            margin: 2vh;
           `}
         >
           {activity}
         </div>
         <div
           css={css`
-            font-size: ${rhythm(1)};
+            font-size: ${rhythm(0.8)};
             font-weight: bold;
-            margin: 2vh;
           `}
         >
           {timerange}
@@ -91,20 +84,25 @@ const ResumeElement = withTheme(
 
 const ResumePage = props => {
   return (
-    <Layout
-      emoji="👩‍🎓 "
-      headerLyric="Look at where you are, look at where you started"
-    >
-      <Description>
-        <p>
+    <Layout headerLyric="Look at where you are, look at where you started">
+      <div
+        css={css`
+          display: flex;
+          width: 100%;
+          margin: 2vh;
+          justify-content: center;
+        `}
+      >
+        <h3>
           <a
             href={withPrefix("/rachelle_mariano_resume_2019.pdf")}
             target="blank"
           >
-            Download a streamlined PDF version of my resume here!
+            <FontAwesomeIcon icon={faFilePdf} /> View a streamlined, PDF version
+            of my resume here!{" "}
           </a>
-        </p>
-      </Description>
+        </h3>
+      </div>
       <ResumeAccordion>
         <Collapsible trigger={<h1>Software Engineer</h1>} open={true}>
           <ResumeElement
@@ -113,13 +111,11 @@ const ResumePage = props => {
             activity="Software Engineer"
             timerange="10/2017 - Present"
             description={
-              <Description>
-                <p>
-                  <a href="https://www.klaviyo.com/">Klaviyo</a> is an eCommerce
-                  marketing and analytics startup that uses Django to help
-                  businesses grow. Since joining Klaviyo, I've worked on the
-                  integrations and data augmentation teams.
-                </p>
+              <div>
+                <a href="https://www.klaviyo.com/">Klaviyo</a> is an eCommerce
+                marketing and analytics startup that uses Django to help
+                businesses grow. Since joining Klaviyo, I've worked on the
+                integrations and data augmentation teams.
                 <p>
                   The integrations team was responsible for processing data from
                   external platforms. I contributed to diverse features,
@@ -165,7 +161,7 @@ const ResumePage = props => {
                   downstream teams and to leverage the geographic capabilities
                   of PostGIS.
                 </p>
-              </Description>
+              </div>
             }
           />
         </Collapsible>
@@ -176,7 +172,7 @@ const ResumePage = props => {
             activity="Graduate Student"
             timerange="09/2015 - 06/2017"
             description={
-              <Description>
+              <div>
                 <p>
                   <a href="https://www.youtube.com/watch?v=cj0iq-bWnsg">
                     Axolotls
@@ -215,7 +211,7 @@ const ResumePage = props => {
                   to teach middle and high school students about science and to
                   prepare them for pursuing STEM tracks in college.
                 </p>
-              </Description>
+              </div>
             }
           />
           <ResumeDivisor />
@@ -225,7 +221,7 @@ const ResumePage = props => {
             activity="Undergraduate Student"
             timerange="08/2011 - 05/2015"
             description={
-              <Description>
+              <div>
                 <p>
                   I completed my Biochemistry-Computer Science dual
                   undergraduate degree at the University of Miami. I also
@@ -245,7 +241,7 @@ const ResumePage = props => {
                   I also played on the women's ultimate frisbee team in my
                   senior year. 🏃‍♀️
                 </p>
-              </Description>
+              </div>
             }
           />
         </Collapsible>
@@ -254,7 +250,7 @@ const ResumePage = props => {
             activity="Axolotl Limb Regeneration"
             timerange="09/2015 - 05/2017"
             description={
-              <Description>
+              <div>
                 <PublicationList>
                   <li>
                     <a href="https://www.nature.com/articles/s41467-018-07604-0">
@@ -274,7 +270,7 @@ const ResumePage = props => {
                   high throughput sequencing data from regenerating and control
                   axolotl limbs.
                 </p>
-              </Description>
+              </div>
             }
           />
           <ResumeDivisor />
@@ -282,7 +278,7 @@ const ResumePage = props => {
             activity="Virus-Host Interactions"
             timerange="05/2014 - 05/2015"
             description={
-              <Description>
+              <div>
                 <PublicationList>
                   <li>
                     <a href="https://www.ncbi.nlm.nih.gov/pubmed/28319831">
@@ -312,7 +308,7 @@ const ResumePage = props => {
                   I used Python scripts to investigate how viruses interact with
                   their hosts using graph models.
                 </p>
-              </Description>
+              </div>
             }
           />
           <ResumeDivisor />
@@ -320,7 +316,7 @@ const ResumePage = props => {
             activity="Dog Genomics"
             timerange="06/2014 - 09/2014"
             description={
-              <Description>
+              <div>
                 <PublicationList>
                   <li>
                     <a href="https://www.sciencedirect.com/science/article/pii/S2452014416300310">
@@ -347,7 +343,7 @@ const ResumePage = props => {
                   the time since their insertion, and whether or not they were
                   silenced differently in dogs versus wolves.
                 </p>
-              </Description>
+              </div>
             }
           />
         </Collapsible>
