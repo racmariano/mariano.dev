@@ -81,6 +81,8 @@ const Bubble = withTheme(props => {
 const Track = withTheme(props => (
   <div
     css={css`
+      overflow: hidden;
+      height: 100%;
       margin: 2vh;
       display: flex;
       flex-direction: ${props.theme.isMobile ? "row" : "column"};
