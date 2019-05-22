@@ -35,7 +35,7 @@ const PortfolioProject = ({
         css={css`
           display: flex;
           align-items: center;
-          width: 20%;
+          width: 30%;
         `}
       >
         {tech}
