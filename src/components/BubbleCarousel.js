@@ -21,7 +21,13 @@ const carouselImageQuery = graphql`
     garden: file(relativePath: { eq: "about_page/japan_garden.jpg" }) {
       ...fixedPhoto
     }
+    lyra: file(relativePath: { eq: "about_page/lyra.png" }) {
+      ...fixedPhoto
+    }
     owl: file(relativePath: { eq: "about_page/japan_owl.jpg" }) {
+      ...fixedPhoto
+    }
+    ski: file(relativePath: { eq: "about_page/ski.jpg" }) {
       ...fixedPhoto
     }
     yarn: file(relativePath: { eq: "about_page/yarn.jpg" }) {
@@ -35,13 +41,13 @@ const carouselImageQuery = graphql`
 
 const loop = keyframes`
   0%
-    {top: -120vw; left: 0vw; }
+    {top: -165vw; left: 0vw; }
   49%
-    {top: 60vw; left: 0vw; }
+    {top: 35vw; left: 0vw; }
   50%
-    {top: 60vw; left: 25vw; }
+    {top: 35vw; left: 25vw; }
   100%
-    {top: -120vw; left: 25vw; }
+    {top: -165vw; left: 25vw; }
 `
 
 const scroll = keyframes`
@@ -63,6 +69,7 @@ const Bubble = withTheme(props => {
           linear infinite;
         width: 20vw;
         height: 20vw;
+        cursor: pointer;
       `}
     >
       <Img
@@ -98,10 +105,16 @@ const BubbleCarousel = withTheme(props => {
     garden:
       "Beautiful gardens in Kanazawa, Japan! I really love Japanese culture. I hope to live there for 6 months to a year at some point!",
     glacier:
-      "Daniel (the bae) and I climbing glaciers in Iceland! We're always trying to go on new adventures.",
-    grass: "Walking through a sea of grass. Nature is really beautiful.",
-    owl: "Owl cafe in Tokyo, Japan! Cute things are the best!",
-    yarn: "I like to crochet while commuting (to work or skiing).",
+      "Daniel (the bae) and I climbing glaciers in Iceland! We're always trying to go on new adventures and see the world.",
+    grass:
+      "Walking through a sea of grass. Hiking with friends is one of my favorite ways to bask in natural splendors!",
+    lyra:
+      "I started circus arts around 3 years ago and try to do them a few times a month. I'm more comfortable with lyra (the hoop).",
+    owl: "Owl cafe in Tokyo, Japan! Cute things and smol animals are the best!",
+    ski:
+      "SEND IT! Viewing beautiful, wintery landscapes, gliding through trees, and hanging out with friends makes skiing so cool.",
+    yarn:
+      "I like to crochet while commuting (to work or skiing). I will probably try making you a hat or scarf.",
     zuly:
       "This is Zuly, my cat! She's a handful. She likes sniffing around the apartment building, playing with string, and sitting on my lap.",
   }
@@ -115,7 +128,7 @@ const BubbleCarousel = withTheme(props => {
     content: {
       display: "flex",
       width: "80vw",
-      height: props.theme.isMobile ? "80vh" : "auto",
+      height: "80vh",
       top: "50%",
       left: "50%",
       transform: "translate(-50%, -50%)",
@@ -168,7 +181,6 @@ const BubbleCarousel = withTheme(props => {
             css={css`
               font-size: 30px;
               float: left;
-              width: 100%;
             `}
           >
             <FontAwesomeIcon icon={faTimesCircle} />
@@ -181,13 +193,7 @@ const BubbleCarousel = withTheme(props => {
             `}
             fixed={selectedImage.childImageSharp.fixed}
           />
-          <div
-            css={css`
-              width: 50%;
-            `}
-          >
-            {selectedText}
-          </div>
+          <div>{selectedText}</div>
         </div>
       </Modal>
       <Track>{createBubbles()}</Track>

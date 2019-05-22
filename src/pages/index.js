@@ -47,7 +47,7 @@ const IndexPage = () => (
     <IndexEntry
       gif={catType}
       date="04/20/19"
-      newsBit="The first version of the site is going live! Whoot!"
+      newsBit="The first version of the site is going live! Woot!"
     />
   </Layout>
 )

@@ -28,29 +28,43 @@ const HeaderText = styled.h1`
   padding: 10px;
 `
 
+// TODO: reconcile styled Link with activeStyle prop
 const HeaderLink = styled(Link)`
   color: ${props => props.theme.divisors.text};
-  padding: ${rhythm(1.5)};
+  margin: ${rhythm(1)};
+  padding-bottom: ${rhythm(0.4)};
+  padding-top: ${rhythm(0.4)};
   font-size: ${rhythm(1)};
-  }
 `
 
-const HeaderLinks = withTheme(({ theme }) => (
-  <div
-    css={css`
-      height: 100%;
-      display: flex;
-      align-items: center;
-      flex-direction: ${theme.isMobile ? "column" : "row"};
-      justify-content: center;
-    `}
-  >
-    <HeaderLink to="/">home</HeaderLink>
-    <HeaderLink to="/resume/">resume</HeaderLink>
-    <HeaderLink to="/portfolio/">portfolio</HeaderLink>
-    <HeaderLink to="/about/">about</HeaderLink>
-  </div>
-))
+const HeaderLinks = withTheme(({ theme }) => {
+  const activeStyle = { borderBottom: "3px solid " }
+
+  return (
+    <div
+      css={css`
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: ${theme.isMobile ? "column" : "row"};
+        justify-content: center;
+      `}
+    >
+      <HeaderLink to="/" activeStyle={activeStyle}>
+        home
+      </HeaderLink>
+      <HeaderLink to="/resume/" activeStyle={activeStyle}>
+        resume
+      </HeaderLink>
+      <HeaderLink to="/portfolio/" activeStyle={activeStyle}>
+        portfolio
+      </HeaderLink>
+      <HeaderLink to="/about/" activeStyle={activeStyle}>
+        about
+      </HeaderLink>
+    </div>
+  )
+})
 
 const ExpandedHeader = React.memo(() => {
   const coolThings = [

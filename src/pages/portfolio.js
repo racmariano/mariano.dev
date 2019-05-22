@@ -28,12 +28,14 @@ const PortfolioProject = ({
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
       `}
     >
       <div
         css={css`
           display: flex;
           align-items: center;
+          width: 20%;
         `}
       >
         {tech}
@@ -43,15 +45,20 @@ const PortfolioProject = ({
             padding-left: 2vh;
           `}
         >
-          {title}
+          <a href={hostedLink}>{title}</a>
         </h1>
       </div>
-      <div>{timerange}</div>
+      <div
+        css={css`
+          width: 20%;
+        `}
+      >
+        {timerange}
+      </div>
       <div>
         <a href={codeLink}>See the code here!</a>
       </div>
     </div>
-    {hostedLink && <a href={hostedLink}>See it live here!</a>}
     <div>{description}</div>
   </div>
 )
@@ -77,10 +84,13 @@ const TextPortfolio = props => (
       title="This website"
       timerange="03/2019 - 05/2019"
       codeLink="https://github.com/racmariano/mariano.dev"
+      hostedLink="https://www.mariano.dev"
       description={
         <p>
-          My first front-end project! It uses Gatsby as a framework and emotion
-          for styling.
+          My first front-end project! It uses{" "}
+          <a href="https://www.gatsbyjs.org/">Gatsby</a> as a framework and{" "}
+          <a href="https://emotion.sh/docs/introduction">emotion</a> for
+          styling.
         </p>
       }
     />
@@ -89,14 +99,20 @@ const TextPortfolio = props => (
       title="Skidom"
       timerange="06/2017 - 10/2017"
       codeLink="https://github.com/racmariano/skidom/tree/master/backend"
-      hostedLink=""
+      hostedLink="https://skidom.herokuapp.com/"
       description={
         <p>
           My first Django project! I collaborated on it with my boyfriend. It
-          used scrapy to get ski resort conditions and the Google Maps API to
-          get driving information. The end result was a table that could be
+          used <a href="https://scrapy.org/">scrapy</a> to get ski resort
+          conditions and the{" "}
+          <a href="https://developers.google.com/maps/documentation/">
+            Google Maps API{" "}
+          </a>
+          to get driving information. The end result was a table that could be
           sorted on snow or driving time/distance. I've come a long way since
-          this!
+          this! Click on <a href="https://skidom.herokuapp.com/">Skidom</a> to
+          see a <strong>kinda-functional-but-not-really</strong> version of it,
+          currently hosted on <a href="https://www.heroku.com/">Heroku</a>.
         </p>
       }
     />
