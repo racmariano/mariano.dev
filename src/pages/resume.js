@@ -13,6 +13,9 @@ import klaviyo from "../images/resume_page/klaviyo_logo.png"
 import harvard from "../images/resume_page/harvard_logo.png"
 import miami from "../images/resume_page/umiami_logo.png"
 
+// TODO: reconcile scrollIntoView (or equivalent) with Collapsible
+// or use another component to provide scrolling on section click.
+
 const PublicationList = props => (
   <div>
     <b>Publications: </b>
@@ -33,11 +36,17 @@ const ResumeAccordion = styled.div`
     padding: 2vh;
     margin: 1vh;
     display: block;
+    cursor: pointer;
   }
 `
 
 const ResumeDivisor = styled.div`
   border-bottom: 3px solid ${props => props.theme.divisors.borderColor};
+`
+
+const EmphasizedText = styled.div`
+  font-size: ${rhythm(0.8)};
+  font-weight: bold;
 `
 
 const ResumeElement = withTheme(
@@ -67,14 +76,7 @@ const ResumeElement = withTheme(
         >
           {activity}
         </div>
-        <div
-          css={css`
-            font-size: ${rhythm(0.8)};
-            font-weight: bold;
-          `}
-        >
-          {timerange}
-        </div>
+        <EmphasizedText>{timerange}</EmphasizedText>
       </div>
 
       <div>{description}</div>
@@ -112,14 +114,20 @@ const ResumePage = props => {
             timerange="10/2017 - Present"
             description={
               <div>
-                <a href="https://www.klaviyo.com/">Klaviyo</a> is an eCommerce
-                marketing and analytics startup that uses Django to help
-                businesses grow. Since joining Klaviyo, I've worked on the
-                integrations and data augmentation teams.
                 <p>
-                  The integrations team was responsible for processing data from
-                  external platforms. I contributed to diverse features,
-                  including:
+                  <a href="https://www.klaviyo.com/">Klaviyo</a> is an ecommerce
+                  marketing and analytics startup that uses Django. Our web app
+                  empowers online businesses by helping them nurture customer
+                  relationships via tools such as powerful segmentation and
+                  dynamic automated messaging.
+                </p>
+                <EmphasizedText>
+                  Software Developer, Integrations:
+                </EmphasizedText>
+                <p>
+                  I was responsible for creating and improving data ingestion
+                  pipelines for several external platforms. I contributed to
+                  diverse features, including:
                 </p>
                 <ul
                   css={css`
@@ -147,19 +155,31 @@ const ResumePage = props => {
                     </a>
                   </li>
                 </ul>
+                <EmphasizedText>
+                  Software Engineer, Data Augmentation:
+                </EmphasizedText>
                 <p>
-                  Integrations split in January 2019, and I joined the data
-                  augmentation team. We are responsible for higher level
-                  functions of integration data, such as serving dynamic coupon
-                  codes and location-based product recommendations.
+                  In October 2018, I chose to join a small team in charge of
+                  developing Klaviyo's first microservice cut from our monolith.
+                  We have been building a Python3 microservice deployed via
+                  Kubernetes for storing and manipulating all customer catalog
+                  data, such as products, their categories, and product-related
+                  subscriptions. We have ported our infrastructure into a
+                  boilerplate that several teams are now using to build their
+                  own microservices.
                 </p>
                 <p>
-                  We have been building a Python3 microservice deployed via
-                  Kubernetes for storing and manipulating catalog data. It uses
-                  gRPC to talk to our monolith and handles over 1 billion
-                  requests each week. We built it to create an intuitive API for
-                  downstream teams and to leverage the geographic capabilities
-                  of PostGIS.
+                  Our service communicates with our monolith via gRPC and
+                  handles over 1 billion requests each week. We built it to
+                  create an intuitive interface for downstream teams and to
+                  leverage the geographic capabilities of PostGIS for product
+                  locations.
+                </p>
+                <p>
+                  In addition, we are responsible for serving single-use coupon
+                  codes and location-based product recommendations to downstream
+                  email-sending teams, thereby allowing our customers to send
+                  more personalized emails.
                 </p>
               </div>
             }
@@ -230,8 +250,8 @@ const ResumePage = props => {
                 <p>
                   At UM, I served on the executive board of the Anime Club. Each
                   fall we raised money for Miami Children's Hospital by hosting{" "}
-                  <a href="https://www.extra-life.org/">ExtraLife</a>. Each
-                  spring we hosted{" "}
+                  <a href="https://www.extra-life.org/">ExtraLife</a>, a 24 hour
+                  video game marathon. Each spring we hosted{" "}
                   <a href="https://www.themiamihurricane.com/2013/04/14/hurricons-anime-celebration-transforms-campus/">
                     Miami Hurricon
                   </a>
