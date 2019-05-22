@@ -109,7 +109,7 @@ const BubbleCarousel = withTheme(props => {
     grass:
       "Walking through a sea of grass. Hiking with friends is one of my favorite ways to bask in natural splendors!",
     lyra:
-      "I started circus arts around 3 years ago and try to do them a few times a month. I'm more comfortable with lyra (the hoop).",
+      "I started circus arts around 3 years ago and try to do them a few times a month. When I first started, I wasn't strong enough to pull myself into the hoop, so it's been a really satisfying journey.",
     owl: "Owl cafe in Tokyo, Japan! Cute things and smol animals are the best!",
     ski:
       "SEND IT! Viewing beautiful, wintery landscapes, gliding through trees, and hanging out with friends makes skiing so cool.",

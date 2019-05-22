@@ -117,9 +117,9 @@ const ResumePage = props => {
                 <p>
                   <a href="https://www.klaviyo.com/">Klaviyo</a> is an ecommerce
                   marketing and analytics startup that uses Django. Our web app
-                  empowers online businesses by helping them nurture customer
-                  relationships via tools such as powerful segmentation and
-                  dynamic automated messaging.
+                  empowers businesses by giving them tools- such as powerful
+                  segmentation and dynamic automated messaging- to nurture
+                  customer relationships.
                 </p>
                 <EmphasizedText>
                   Software Developer, Integrations:
@@ -161,12 +161,11 @@ const ResumePage = props => {
                 <p>
                   In October 2018, I chose to join a small team in charge of
                   developing Klaviyo's first microservice cut from our monolith.
-                  We have been building a Python3 microservice deployed via
-                  Kubernetes for storing and manipulating all customer catalog
-                  data, such as products, their categories, and product-related
-                  subscriptions. We have ported our infrastructure into a
-                  boilerplate that several teams are now using to build their
-                  own microservices.
+                  We built a Python3 microservice deployed via Kubernetes for
+                  storing and manipulating all customer catalog data, such as
+                  products, their categories, and product-related subscriptions.
+                  We have ported our infrastructure into a boilerplate repo that
+                  several teams are now using to build their own microservices.
                 </p>
                 <p>
                   Our service communicates with our monolith via gRPC and
