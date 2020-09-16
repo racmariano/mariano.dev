@@ -1,0 +1,30 @@
+[Klaviyo](https://www.klaviyo.com/) is an ecommerce marketing and analytics startup that uses Django. Our web app
+empowers businesses by giving them tools- such as powerful segmentation and dynamic automated messaging- to nurture
+customer relationships.
+
+### Software Developer, Integrations:
+
+I was responsible for creating and improving data ingestion
+pipelines for several external platforms. I contributed to
+diverse features, including:
+
+- [Typeform Integration](https://help.klaviyo.com/hc/en-us/articles/115000107112-Integrate-with-Typeform)
+
+- [Back In Stock](https://www.klaviyo.com/blog/capture-customer-back-stock-flows)
+    
+- [BigCommerce Webhooks](https://www.klaviyo.com/blog/faster-integration-for-bigcommerce-merchants)
+
+- [Custom Objects](https://www.klaviyo.com/blog/improve-your-email-targeting-with-custom-object-data-netsuite-integration)
+
+
+### Software Engineer, Data Augmentation:
+
+In October 2018, I chose to join a small team in charge of developing Klaviyo's first microservice cut from our monolith.
+We built a Python3 microservice deployed via Kubernetes for storing and manipulating all customer catalog data, such as
+products, their categories, and product-related subscriptions. We have ported our infrastructure into a boilerplate repo that
+several teams are now using to build their own microservices.
+
+Our service communicated with our monolith via gRPC and handled over 1 billion requests each week. We built it to
+create an intuitive interface for downstream teams and to leverage the geographic capabilities of PostGIS for product
+locations. In addition, we were responsible for serving single-use coupon codes and location-based product recommendations to downstream
+email-sending teams, thereby allowing our customers to send more personalized emails.

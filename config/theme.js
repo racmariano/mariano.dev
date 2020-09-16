@@ -1,13 +1,13 @@
 const colors = {
-  body: "#eaeaea",
-  mainText: "#444444",
+  body: "#dae1e7",
+  mainText: "#142850",
 }
 
 const divisors = {
-  color: "#f30067",
-  borderColor: "#00d1cd",
-  border: "10px solid #00d1cd",
-  text: "#eaeaea",
+  color: "#142850",
+  borderColor: "#27496d",
+  border: "10px solid #00909e",
+  text: "#dae1e7",
   headerHeight: "90px",
   footerHeight: "65px",
 }

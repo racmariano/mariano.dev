@@ -43,7 +43,7 @@ template {
 }
 a {
   font-weight: bold;
-  color: #f30067;
+  color: #00909e;
 }
 a:active,
 a:hover {
@@ -222,7 +222,7 @@ h1 {
   padding-left: 0;
   padding-right: 0;
   padding-top: 0;
-  color: #f30067;
+  color: #00909e;
   font-weight: bold;
   text-rendering: optimizeLegibility;
   font-size: 2rem;

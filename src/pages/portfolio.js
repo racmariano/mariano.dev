@@ -1,12 +1,10 @@
 import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPython, faReact } from "@fortawesome/free-brands-svg-icons"
+import { faReact } from "@fortawesome/free-brands-svg-icons"
 import { css } from "@emotion/core"
 import { withTheme } from "emotion-theming"
 
 import Layout from "../components/Layout"
-
-import meme from "../images/portfolio_meme.jpg"
 
 const PortfolioProject = ({
   tech,
@@ -69,16 +67,7 @@ const TextPortfolio = props => (
       width: 100%;
     `}
   >
-    <p>
-      Klaviyo has been my first job after grad school. It's a ton of fun, and
-      I'm grateful for all that I've learned and accomplished! However, it's
-      also been extremely consuming to work at such a fast pace. I'm doing my
-      best to grow and explore as a developer outside of my job, but it's a slow
-      process!
-    </p>
-    <p>
-      <b>Please check back soon for more current work.</b>
-    </p>
+    <p>I mostly spend my time outside work... outside. :( </p>
     <PortfolioProject
       tech={<FontAwesomeIcon icon={faReact} />}
       title="This website"
@@ -87,32 +76,8 @@ const TextPortfolio = props => (
       hostedLink="https://www.mariano.dev"
       description={
         <p>
-          My first front-end project! It uses{" "}
-          <a href="https://www.gatsbyjs.org/">Gatsby</a> as a framework and{" "}
-          <a href="https://emotion.sh/docs/introduction">emotion</a> for
-          styling.
-        </p>
-      }
-    />
-    <PortfolioProject
-      tech={<FontAwesomeIcon icon={faPython} />}
-      title="Skidom"
-      timerange="06/2017 - 10/2017"
-      codeLink="https://github.com/racmariano/skidom/tree/master/backend"
-      hostedLink="https://skidom.herokuapp.com/"
-      description={
-        <p>
-          My first Django project! I collaborated on it with my boyfriend. It
-          used <a href="https://scrapy.org/">scrapy</a> to get ski resort
-          conditions and the{" "}
-          <a href="https://developers.google.com/maps/documentation/">
-            Google Maps API{" "}
-          </a>
-          to get driving information. The end result was a table that could be
-          sorted on snow or driving time/distance. I've come a long way since
-          this! Click on <a href="https://skidom.herokuapp.com/">Skidom</a> to
-          see a <strong>kinda-functional-but-not-really</strong> version of it,
-          currently hosted on <a href="https://www.heroku.com/">Heroku</a>.
+          This website uses{" "}  <a href="https://www.gatsbyjs.org/">Gatsby</a> as a framework and{" "}
+          <a href="https://emotion.sh/docs/introduction">emotion</a> for styling... heck, why am I not using styled-components? D:
         </p>
       }
     />
@@ -133,19 +98,9 @@ const PortfolioWrapper = withTheme(props => (
 ))
 
 const PortfolioPage = () => (
-  <Layout headerLyric="There's a million things I haven't done, but just you wait">
+  <Layout>
     <PortfolioWrapper>
       <TextPortfolio />
-      <div
-        css={css`
-          display: flex;
-          width: 100%;
-          justify-content: center;
-          margin-bottom: 2vh;
-        `}
-      >
-        <img src={meme} alt="While I love my job, it is consuming." />
-      </div>
     </PortfolioWrapper>
   </Layout>
 )

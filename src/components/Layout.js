@@ -40,7 +40,7 @@ const Layout = props => {
             }
           }
         `}
-        render={data => (
+        render={() => (
           <div
             id="root"
             css={css`
@@ -55,17 +55,7 @@ const Layout = props => {
                 css={css`
                   margin-bottom: 3vh;
                 `}
-              >
-                <h1>
-                  <span role="img" aria-label="Music note">
-                    🎵
-                  </span>{" "}
-                  {props.headerLyric}{" "}
-                  <span role="img" aria-label="Music note">
-                    🎵
-                  </span>
-                </h1>
-              </div>
+              />
               <main>{props.children}</main>
             </Body>
             <Footer />

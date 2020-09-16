@@ -54,13 +54,10 @@ const HeaderLinks = withTheme(({ theme }) => {
         home
       </HeaderLink>
       <HeaderLink to="/resume/" activeStyle={activeStyle}>
-        resume
+        CV
       </HeaderLink>
       <HeaderLink to="/portfolio/" activeStyle={activeStyle}>
         portfolio
-      </HeaderLink>
-      <HeaderLink to="/about/" activeStyle={activeStyle}>
-        about
       </HeaderLink>
     </div>
   )
@@ -110,7 +107,7 @@ const HamburgerContainer = styled.div`
   }
 
   .bm-burger-bars-hover {
-    background: black;
+    background: #dae1e7;
   }
 `
 
