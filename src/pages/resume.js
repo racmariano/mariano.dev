@@ -9,8 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons"
 
 import Layout from "../components/Layout"
-import tpci from "../images/resume_page/tpci_logo.jpg"
-import klaviyo from "../images/resume_page/klaviyo_logo.png"
+import tpci from "../images/resume_page/tpci_logo.svg"
+import klaviyo from "../images/resume_page/klaviyo_logo.svg"
 import harvard from "../images/resume_page/harvard_logo.png"
 import miami from "../images/resume_page/umiami_logo.png"
 
@@ -26,20 +26,16 @@ import VonHoldtPubs from "../content/pubs/vonholdt.mdx"
 // TODO: reconcile scrollIntoView (or equivalent) with Collapsible
 // or use another component to provide scrolling on section click.
 
-
 const ResumeAccordion = styled.div`
   .Collapsible__trigger {
-    border: 5px solid ${props => props.theme.divisors.borderColor};
-    color: ${props => props.theme.divisors.color};
-    padding: 2vh;
-    margin: 1vh;
+    border-bottom: 3px solid ${(props) => props.theme.divisors.borderColor};
+    color: ${(props) => props.theme.divisors.color};
+    padding-bottom: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
     display: block;
     cursor: pointer;
   }
-`
-
-const ResumeDivisor = styled.div`
-  border-bottom: 3px solid ${props => props.theme.divisors.borderColor};
 `
 
 const EmphasizedText = styled.div`
@@ -53,7 +49,7 @@ const ResumeElement = withTheme(
       css={css`
         display: flex;
         flex-direction: column;
-        margin: 2vh;
+        padding: 1vh;
       `}
     >
       <div
@@ -62,10 +58,15 @@ const ResumeElement = withTheme(
           justify-content: space-between;
           align-items: center;
           flex-direction: ${theme.isMobile ? "column" : "row"};
-          margin: 2vh;
         `}
       >
-        <img src={imageSource} alt={imageAlt} width="300px" />
+        <img
+          css={css`
+            max-width: 200px;
+          `}
+          src={imageSource}
+          alt={imageAlt}
+        />
         <div
           css={css`
             font-size: ${rhythm(1.0)};
@@ -76,13 +77,18 @@ const ResumeElement = withTheme(
         </div>
         <EmphasizedText>{timerange}</EmphasizedText>
       </div>
-
-      <div>{description}</div>
+      <div
+        css={css`
+          padding-top: 2vh;
+        `}
+      >
+        {description}
+      </div>
     </div>
   )
 )
 
-const ResumePage = props => {
+const ResumePage = (props) => {
   return (
     <Layout>
       <div
@@ -99,7 +105,7 @@ const ResumePage = props => {
             target="blank"
           >
             <FontAwesomeIcon icon={faFilePdf} /> View a streamlined, PDF version
-            of my resume here!{" "}
+            of my resume here!
           </a>
         </h3>
       </div>
@@ -107,7 +113,7 @@ const ResumePage = props => {
         <Collapsible trigger={<h1>Software Engineer</h1>} open={true}>
           <ResumeElement
             imageSource={tpci}
-            imageAlt="I now work at the Pokémon Company International."
+            imageAlt="I now work at The Pokémon Company International."
             activity="Software Engineer II"
             timerange="09/2019 - present"
             description={<PokemonCV />}
@@ -128,7 +134,6 @@ const ResumePage = props => {
             timerange="09/2015 - 06/2017"
             description={<HarvardCV />}
           />
-          <ResumeDivisor />
           <ResumeElement
             imageSource={miami}
             imageAlt="I pursued a dual major in Biochemistry and Computer Science at the University of Miami."
@@ -143,13 +148,11 @@ const ResumePage = props => {
             timerange="09/2015 - 05/2017"
             description={<WhitedPubs />}
           />
-          <ResumeDivisor />
           <ResumeElement
             activity="Virus-Host Interactions"
             timerange="05/2014 - 05/2015"
             description={<WuchtyPubs />}
           />
-          <ResumeDivisor />
           <ResumeElement
             activity="Dog Genomics"
             timerange="06/2014 - 09/2014"

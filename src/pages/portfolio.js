@@ -2,11 +2,25 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faReact } from "@fortawesome/free-brands-svg-icons"
 import { css } from "@emotion/core"
+import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
 
 import Layout from "../components/Layout"
 
-const PortfolioProject = ({
+const ProjectRow = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 2vh;
+`
+
+const ProjectCell = styled.div`
+  width: 20%;
+  display: flex;
+`
+
+const TechProject = ({
   tech,
   title,
   timerange,
@@ -14,83 +28,109 @@ const PortfolioProject = ({
   hostedLink,
   description,
 }) => (
-  <div
-    css={css`
-      margin: 2vh;
-      padding-bottom: 2vh;
-      padding-top: 2vh;
-    `}
-  >
-    <div
-      css={css`
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-      `}
-    >
-      <div
+  <ProjectRow>
+    <ProjectCell>
+      {tech}
+      <h3
         css={css`
-          display: flex;
-          align-items: center;
-          width: 30%;
+          padding-left: 2vh;
         `}
       >
-        {tech}
-        <h1
-          css={css`
-            font-size: 30px;
-            padding-left: 2vh;
-          `}
-        >
-          <a href={hostedLink}>{title}</a>
-        </h1>
-      </div>
-      <div
-        css={css`
-          width: 20%;
-        `}
-      >
-        {timerange}
-      </div>
-      <div>
-        <a href={codeLink}>See the code here!</a>
-      </div>
-    </div>
+        <a href={hostedLink}>{title}</a>
+      </h3>
+    </ProjectCell>
+    <ProjectCell> {timerange}</ProjectCell>
+    <ProjectCell>
+      <a href={codeLink}>See the code here!</a>
+    </ProjectCell>
     <div>{description}</div>
-  </div>
+  </ProjectRow>
 )
 
-const TextPortfolio = props => (
+const CrochetProject = ({
+  item,
+  thumbnails,
+  finishedDate,
+  patternLink,
+  description,
+}) => (
+  <ProjectRow>
+    <ProjectCell>
+      <h3>{item}</h3>
+    </ProjectCell>
+    <ProjectCell>{finishedDate}</ProjectCell>
+    <ProjectCell>
+      <a href={patternLink}>Link to pattern</a>
+    </ProjectCell>
+    <div>{thumbnails}</div>
+    <ProjectCell>{description}</ProjectCell>
+  </ProjectRow>
+)
+
+const Portfolio = (props) => (
   <div
     css={css`
       width: 100%;
     `}
   >
-    <p>I mostly spend my time outside work... outside. :( </p>
-    <PortfolioProject
+    <h2>Tech</h2>
+    <TechProject
       tech={<FontAwesomeIcon icon={faReact} />}
       title="This website"
-      timerange="03/2019 - 05/2019"
+      timerange="03/2019 - Present"
       codeLink="https://github.com/racmariano/mariano.dev"
       hostedLink="https://www.mariano.dev"
       description={
-        <p>
-          This website uses{" "}  <a href="https://www.gatsbyjs.org/">Gatsby</a> as a framework and{" "}
-          <a href="https://emotion.sh/docs/introduction">emotion</a> for styling... heck, why am I not using styled-components? D:
-        </p>
+        <div>
+          This website uses <a href="https://www.gatsbyjs.org/">Gatsby</a> as a
+          framework and{" "}
+          <a href="https://emotion.sh/docs/introduction">emotion</a> for
+          styling.
+        </div>
       }
+    />
+    <h2>Crochet</h2>
+    <CrochetProject
+      item="She-Ra Amigurumi"
+      finishedDate="09/24/20"
+      patternLink="https://www.ravelry.com/patterns/library/eva-doll-2"
+      description="This was my first time doing hair and free-handing so many color changes. I LOVE HER."
+    />
+    <CrochetProject
+      item="Vaporeon Hat"
+      finishedDate="08/20/20"
+      patternLink="https://www.ravelry.com/patterns/library/grateful-dead-dancing-bear-hood"
+      description="I made this for a craft exchange. I modified a hooded pattern and free-handed the fins."
+    />
+    <CrochetProject
+      item="Bunny Baby Blanket"
+      finishedDate="08/20/20"
+      patternLink="https://www.ravelry.com/patterns/library/bunny-lovey-parts--pieces"
+      description="I made this for a coworker. I tried doing an invisible decrease and it failed, but it still ended up cute."
+    />
+    <CrochetProject
+      item="Tardis Baby Blanket"
+      finishedDate="07/24/20"
+      patternLink=""
+      description="I made this for a coworker. SO MANY COLOR CHANGES. AHHHH."
+    />
+    <CrochetProject
+      item="Eevee Hat"
+      finishedDate="05/15/20"
+      patternLink="https://www.ravelry.com/patterns/library/toothless-hat"
+      description="I modified a beanie pattern. It came out surprisingly cute?!"
     />
   </div>
 )
 
-const PortfolioWrapper = withTheme(props => (
+const PortfolioWrapper = withTheme((props) => (
   <div
     css={css`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
       flex-direction: ${props.theme.isMobile ? "column" : "row"};
+      width: 100%;
     `}
   >
     {props.children}
@@ -100,7 +140,7 @@ const PortfolioWrapper = withTheme(props => (
 const PortfolioPage = () => (
   <Layout>
     <PortfolioWrapper>
-      <TextPortfolio />
+      <Portfolio />
     </PortfolioWrapper>
   </Layout>
 )

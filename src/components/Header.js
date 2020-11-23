@@ -9,9 +9,9 @@ import { withTheme } from "emotion-theming"
 import { rhythm } from "../utils/typography"
 
 const Head = styled.div`
-  height: ${props => props.theme.divisors.headerHeight};
-  background: ${props => props.theme.divisors.color};
-  border-bottom: ${props => props.theme.divisors.border};
+  height: ${(props) => props.theme.divisors.headerHeight};
+  background: ${(props) => props.theme.divisors.color};
+  border-bottom: ${(props) => props.theme.divisors.border};
 `
 
 const ExpandedHeadContent = styled.div`
@@ -23,14 +23,14 @@ const ExpandedHeadContent = styled.div`
 `
 
 const HeaderText = styled.h1`
-  color: ${props => props.theme.divisors.text};
+  color: ${(props) => props.theme.divisors.text};
   font-size: ${rhythm(1.5)};
   padding: 10px;
 `
 
 // TODO: reconcile styled Link with activeStyle prop
 const HeaderLink = styled(Link)`
-  color: ${props => props.theme.divisors.text};
+  color: ${(props) => props.theme.divisors.text};
   margin: ${rhythm(1)};
   padding-bottom: ${rhythm(0.4)};
   padding-top: ${rhythm(0.4)};
@@ -63,28 +63,12 @@ const HeaderLinks = withTheme(({ theme }) => {
   )
 })
 
-const ExpandedHeader = React.memo(() => {
-  const coolThings = [
-    "the epigenome! 🧬",
-    "kittens! 🐱",
-    "learning! 📚",
-    "puppies! 🐶",
-    "science! 🔬",
-    "the moon kingdom! 🌙",
-  ]
-
-  return (
-    <ExpandedHeadContent>
-      <HeaderText>
-        for{" "}
-        <span role="img" aria-label="I like cool things!">
-          {coolThings[Math.floor(Math.random() * coolThings.length)]}
-        </span>
-      </HeaderText>
-      <HeaderLinks />
-    </ExpandedHeadContent>
-  )
-})
+const ExpandedHeader = () => (
+  <ExpandedHeadContent>
+    <HeaderText>Rachelle Mariano</HeaderText>
+    <HeaderLinks />
+  </ExpandedHeadContent>
+)
 
 const HamburgerContainer = styled.div`
   display: flex;
@@ -99,15 +83,11 @@ const HamburgerContainer = styled.div`
     padding: 2%;
     height: 100vh;
     border-right: 5px solid white;
-    background: ${props => props.theme.divisors.borderColor};
+    background: ${(props) => props.theme.divisors.borderColor};
   }
 
   .bm-burger-bars {
     background: white;
-  }
-
-  .bm-burger-bars-hover {
-    background: #dae1e7;
   }
 `
 

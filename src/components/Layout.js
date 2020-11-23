@@ -19,7 +19,7 @@ import Header from "./Header"
 import Body from "./Body"
 import Footer from "./Footer"
 
-const Layout = props => {
+const Layout = (props) => {
   let [isMobile, setIsMobile] = useState(null)
   const theme = getTheme(isMobile)
   const isMobileSize = useMedia({ maxWidth: 1550 })
@@ -40,7 +40,7 @@ const Layout = props => {
             }
           }
         `}
-        render={() => (
+        render={(data) => (
           <div
             id="root"
             css={css`
@@ -56,7 +56,7 @@ const Layout = props => {
                   margin-bottom: 3vh;
                 `}
               />
-              <main>{props.children}</main>
+              {props.children}
             </Body>
             <Footer />
           </div>

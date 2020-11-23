@@ -47,6 +47,7 @@ a {
 }
 a:active,
 a:hover {
+  color: #989898;
   outline-width: 0;
 }
 abbr[title] {
@@ -254,8 +255,10 @@ h3 {
   color: inherit;
   font-weight: bold;
   text-rendering: optimizeLegibility;
-  font-size: 1.38316rem;
+  font-size: 1.1rem;
+  padding-bottom: 5px;
   line-height: 1.1;
+  font-family: Tahoma, Verdana, sans-serif;
 }
 h4 {
   margin-left: 0;
