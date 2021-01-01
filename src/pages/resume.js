@@ -27,6 +27,7 @@ import VonHoldtPubs from "../content/pubs/vonholdt.mdx"
 // or use another component to provide scrolling on section click.
 
 const ResumeAccordion = styled.div`
+  width: 80%;
   .Collapsible__trigger {
     border-bottom: 3px solid ${(props) => props.theme.divisors.borderColor};
     color: ${(props) => props.theme.divisors.color};
@@ -94,8 +95,6 @@ const ResumePage = (props) => {
       <div
         css={css`
           display: flex;
-          width: 100%;
-          margin: 2vh;
           justify-content: center;
         `}
       >

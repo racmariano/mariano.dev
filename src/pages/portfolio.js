@@ -1,4 +1,5 @@
 import React from "react"
+import Img from "gatsby-image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faReact } from "@fortawesome/free-brands-svg-icons"
 import { css } from "@emotion/core"
@@ -49,7 +50,7 @@ const TechProject = ({
 
 const CrochetProject = ({
   item,
-  thumbnails,
+  thumbnail,
   finishedDate,
   patternLink,
   description,
@@ -62,7 +63,7 @@ const CrochetProject = ({
     <ProjectCell>
       <a href={patternLink}>Link to pattern</a>
     </ProjectCell>
-    <div>{thumbnails}</div>
+    <div>{thumbnail}</div>
     <ProjectCell>{description}</ProjectCell>
   </ProjectRow>
 )
@@ -111,7 +112,7 @@ const Portfolio = (props) => (
     <CrochetProject
       item="Tardis Baby Blanket"
       finishedDate="07/24/20"
-      patternLink=""
+      patternLink="https://www.ravelry.com/patterns/library/mini-police-box"
       description="I made this for a coworker. SO MANY COLOR CHANGES. AHHHH."
     />
     <CrochetProject
@@ -130,7 +131,7 @@ const PortfolioWrapper = withTheme((props) => (
       justify-content: space-evenly;
       align-items: center;
       flex-direction: ${props.theme.isMobile ? "column" : "row"};
-      width: 100%;
+      width: 80%;
     `}
   >
     {props.children}

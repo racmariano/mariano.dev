@@ -50,14 +50,7 @@ const Layout = (props) => {
             `}
           >
             <Header />
-            <Body>
-              <div
-                css={css`
-                  margin-bottom: 3vh;
-                `}
-              />
-              {props.children}
-            </Body>
+            <Body>{props.children}</Body>
             <Footer />
           </div>
         )}
