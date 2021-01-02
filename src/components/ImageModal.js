@@ -21,7 +21,6 @@ const ImageModal = withTheme((props) => {
       transform: "translate(-50%, -50%)",
     },
   }
-
   return (
     <Modal
       style={modalStyles}
@@ -31,9 +30,6 @@ const ImageModal = withTheme((props) => {
       <div
         css={css`
           display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-direction: ${props.theme.isMobile ? "column" : "row"};
           height: 100%;
           width: 100%;
         `}
@@ -42,20 +38,39 @@ const ImageModal = withTheme((props) => {
           onClick={() => props.toggleModal(false)}
           css={css`
             font-size: 30px;
-            float: left;
           `}
         >
           <FontAwesomeIcon icon={faTimesCircle} />
         </div>
-        <Img
+        <div
           css={css`
-            max-width: 100%;
-            max-height: 100%;
-            margin: 2vh;
+            display: flex;
+            flex-direction: ${props.theme.isMobile ? "column" : "row"};
+            align-items: center;
+            height: 100%;
+            width: 100%;
           `}
-          fixed={props.selectedImage.childImageSharp.fixed}
-        />
-        <div>{props.selectedText}</div>
+        >
+          <div
+            css={css`
+              width: 50vw;
+              height: 100%;
+              margin: 1vw;
+              overflow: hidden;
+            `}
+          >
+            <Img
+              css={css`
+                height: 100%;
+              `}
+              imgStyle={{
+                objectFit: "contain",
+              }}
+              fluid={props.selectedImage.childImageSharp.fluid}
+            />
+          </div>
+          {props.selectedData}
+        </div>
       </div>
     </Modal>
   )

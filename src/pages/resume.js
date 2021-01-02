@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons"
 
 import Layout from "../components/Layout"
+import Metadata from "../components/Metadata"
 import tpci from "../images/resume_page/tpci_logo.svg"
 import klaviyo from "../images/resume_page/klaviyo_logo.svg"
 import harvard from "../images/resume_page/harvard_logo.png"
@@ -92,6 +93,7 @@ const ResumeElement = withTheme(
 const ResumePage = (props) => {
   return (
     <Layout>
+      <Metadata title="CV" description="Rachelle Mariano's CV" />
       <div
         css={css`
           display: flex;

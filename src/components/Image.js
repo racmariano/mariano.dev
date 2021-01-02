@@ -32,3 +32,14 @@ export const fixedPhoto = graphql`
     }
   }
 `
+
+export const fluidPhoto = graphql`
+  fragment fluidPhoto on File {
+    childImageSharp {
+      fluid {
+        aspectRatio
+        ...GatsbyImageSharpFluid
+      }
+    }
+  }
+`
