@@ -1,5 +1,5 @@
 import React from "react"
-import Img from "gatsby-image"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faReact } from "@fortawesome/free-brands-svg-icons"
 import { css } from "@emotion/core"
@@ -7,6 +7,8 @@ import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
 
 import Layout from "../components/Layout"
+import PhotoGrid from "../components/PhotoGrid"
+import crochetData from "../content/portfolio/crochet.json"
 
 const ProjectRow = styled.div`
   display: flex;
@@ -48,26 +50,6 @@ const TechProject = ({
   </ProjectRow>
 )
 
-const CrochetProject = ({
-  item,
-  thumbnail,
-  finishedDate,
-  patternLink,
-  description,
-}) => (
-  <ProjectRow>
-    <ProjectCell>
-      <h3>{item}</h3>
-    </ProjectCell>
-    <ProjectCell>{finishedDate}</ProjectCell>
-    <ProjectCell>
-      <a href={patternLink}>Link to pattern</a>
-    </ProjectCell>
-    <div>{thumbnail}</div>
-    <ProjectCell>{description}</ProjectCell>
-  </ProjectRow>
-)
-
 const Portfolio = (props) => (
   <div
     css={css`
@@ -91,36 +73,10 @@ const Portfolio = (props) => (
       }
     />
     <h2>Crochet</h2>
-    <CrochetProject
-      item="She-Ra Amigurumi"
-      finishedDate="09/24/20"
-      patternLink="https://www.ravelry.com/patterns/library/eva-doll-2"
-      description="This was my first time doing hair and free-handing so many color changes. I LOVE HER."
-    />
-    <CrochetProject
-      item="Vaporeon Hat"
-      finishedDate="08/20/20"
-      patternLink="https://www.ravelry.com/patterns/library/grateful-dead-dancing-bear-hood"
-      description="I made this for a craft exchange. I modified a hooded pattern and free-handed the fins."
-    />
-    <CrochetProject
-      item="Bunny Baby Blanket"
-      finishedDate="08/20/20"
-      patternLink="https://www.ravelry.com/patterns/library/bunny-lovey-parts--pieces"
-      description="I made this for a coworker. I tried doing an invisible decrease and it failed, but it still ended up cute."
-    />
-    <CrochetProject
-      item="Tardis Baby Blanket"
-      finishedDate="07/24/20"
-      patternLink="https://www.ravelry.com/patterns/library/mini-police-box"
-      description="I made this for a coworker. SO MANY COLOR CHANGES. AHHHH."
-    />
-    <CrochetProject
-      item="Eevee Hat"
-      finishedDate="05/15/20"
-      patternLink="https://www.ravelry.com/patterns/library/toothless-hat"
-      description="I modified a beanie pattern. It came out surprisingly cute?!"
-    />
+    <p>
+      I crochet a lot. I will probably end up making you (or your child) a hat.
+    </p>
+    <PhotoGrid data={crochetData} />
   </div>
 )
 
