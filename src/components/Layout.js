@@ -19,7 +19,7 @@ import Header from "./Header"
 import Body from "./Body"
 import Footer from "./Footer"
 
-const Layout = props => {
+const Layout = (props) => {
   let [isMobile, setIsMobile] = useState(null)
   const theme = getTheme(isMobile)
   const isMobileSize = useMedia({ maxWidth: 1550 })
@@ -40,7 +40,7 @@ const Layout = props => {
             }
           }
         `}
-        render={data => (
+        render={(data) => (
           <div
             id="root"
             css={css`
@@ -50,24 +50,7 @@ const Layout = props => {
             `}
           >
             <Header />
-            <Body>
-              <div
-                css={css`
-                  margin-bottom: 3vh;
-                `}
-              >
-                <h1>
-                  <span role="img" aria-label="Music note">
-                    🎵
-                  </span>{" "}
-                  {props.headerLyric}{" "}
-                  <span role="img" aria-label="Music note">
-                    🎵
-                  </span>
-                </h1>
-              </div>
-              <main>{props.children}</main>
-            </Body>
+            <Body>{props.children}</Body>
             <Footer />
           </div>
         )}

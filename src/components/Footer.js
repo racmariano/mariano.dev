@@ -9,9 +9,7 @@ const ImageLink = styled.a`
   padding: 20px;
   color: ${props => props.theme.divisors.text};
   font-size: 48px;
-  :hover {
-    color: black;
-  }
+}
 `
 
 const FooterImages = () => {
