@@ -7,6 +7,7 @@ import styled from "@emotion/styled"
 import { withTheme } from "emotion-theming"
 
 import Layout from "../components/Layout"
+import Metadata from "../components/Metadata"
 import PhotoGrid from "../components/PhotoGrid"
 import crochetData from "../content/portfolio/crochet.json"
 
@@ -157,6 +158,10 @@ const PortfolioWrapper = withTheme((props) => (
 
 const PortfolioPage = () => (
   <Layout>
+    <Metadata
+      title="Portfolio"
+      description="Rachelle Mariano's personal projects"
+    />
     <PortfolioWrapper>
       <Portfolio />
     </PortfolioWrapper>
