@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
-import { css } from "@emotion/core"
-import { withTheme } from "emotion-theming"
+import { css, withTheme } from "@emotion/react"
 
 import Layout from "../components/Layout"
 import Metadata from "../components/Metadata"

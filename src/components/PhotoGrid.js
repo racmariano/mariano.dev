@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import GridList from "@material-ui/core/GridList"
-import GridListTile from "@material-ui/core/GridListTile"
+import ImageList from "@material-ui/core/ImageList"
+import ImageListItem from "@material-ui/core/ImageListItem"
 
 import Img from "gatsby-image"
-import { withTheme } from "emotion-theming"
+import { withTheme } from "@emotion/react"
 
 import ImageModal from "./ImageModal"
 
@@ -18,7 +18,7 @@ const PhotoGrid = withTheme((props) => {
       const dataDiv = makeDataDiv(entry)
 
       return (
-        <GridListTile
+        <ImageListItem
           key={entry.key}
           onClick={() => {
             toggleModal(true)
@@ -30,7 +30,7 @@ const PhotoGrid = withTheme((props) => {
             alt={entry.description}
             fluid={imageData.childImageSharp.fluid}
           />
-        </GridListTile>
+        </ImageListItem>
       )
     })
   }
@@ -43,9 +43,9 @@ const PhotoGrid = withTheme((props) => {
         modalVisible={modalVisible}
         toggleModal={toggleModal}
       />
-      <GridList cols={3}>
+      <ImageList cols={3}>
         {createGrid(props.data, props.imageQuery, props.makeDataDiv)}
-      </GridList>
+      </ImageList>
     </div>
   )
 })

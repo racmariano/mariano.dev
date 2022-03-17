@@ -1,8 +1,7 @@
 import React from "react"
 import Modal from "react-modal"
 import Img from "gatsby-image"
-import { css } from "@emotion/core"
-import { withTheme } from "emotion-theming"
+import { css, withTheme } from "@emotion/react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"

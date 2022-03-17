@@ -1,9 +1,8 @@
 import React from "react"
 import { withPrefix } from "gatsby"
 import Collapsible from "react-collapsible"
-import { css } from "@emotion/core"
+import { css, withTheme } from "@emotion/react"
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
 import { rhythm } from "../utils/typography"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons"
@@ -19,7 +18,7 @@ import miami from "../images/resume_page/umiami_logo.png"
 import KlaviyoCV from "../content/cv/klaviyo.mdx"
 import PokemonCV from "../content/cv/pokemon.mdx"
 import HarvardCV from "../content/edu/harvard.mdx"
-import UMCV from "../content/edu/um.mdx"
+import UniversityMiamiCV from "../content/edu/um.mdx"
 import WhitedPubs from "../content/pubs/whited.mdx"
 import WuchtyPubs from "../content/pubs/wuchty.mdx"
 import VonHoldtPubs from "../content/pubs/vonholdt.mdx"
@@ -102,7 +101,7 @@ const ResumePage = (props) => {
       >
         <h3>
           <a
-            href={withPrefix("/rachelle_mariano_resume_2019.pdf")}
+            href={withPrefix("/rachelle_mariano_resume_2022.pdf")}
             target="blank"
           >
             <FontAwesomeIcon icon={faFilePdf} /> View a streamlined, PDF version
@@ -140,7 +139,7 @@ const ResumePage = (props) => {
             imageAlt="I pursued a dual major in Biochemistry and Computer Science at the University of Miami."
             activity="Undergraduate Student"
             timerange="08/2011 - 05/2015"
-            description={<UMCV />}
+            description={<UniversityMiamiCV />}
           />
         </Collapsible>
         <Collapsible trigger={<h1>Research and Publications</h1>}>
