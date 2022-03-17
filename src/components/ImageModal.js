@@ -1,8 +1,7 @@
 import React from "react"
 import Modal from "react-modal"
-import Img from "gatsby-image"
-import { css } from "@emotion/core"
-import { withTheme } from "emotion-theming"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { css, withTheme } from "@emotion/react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
@@ -59,14 +58,9 @@ const ImageModal = withTheme((props) => {
               overflow: hidden;
             `}
           >
-            <Img
-              css={css`
-                height: 100%;
-              `}
-              imgStyle={{
-                objectFit: "contain",
-              }}
-              fluid={props.selectedImage.childImageSharp.fluid}
+            <GatsbyImage
+              objectFit="contain"
+              image={props.selectedImage.childImageSharp.gatsbyImageData}
             />
           </div>
           {props.selectedData}

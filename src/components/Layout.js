@@ -8,8 +8,7 @@
 import React, { useLayoutEffect, useState } from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import { ThemeProvider } from "emotion-theming"
-import { css } from "@emotion/core"
+import { css, ThemeProvider } from "@emotion/react"
 import { useMedia } from "use-media"
 
 import getTheme from "../../config/theme"

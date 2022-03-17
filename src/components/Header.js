@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 import { slide as Menu } from "react-burger-menu"
 import { Link } from "gatsby"
-import { css } from "@emotion/core"
+import { css, withTheme } from "@emotion/react"
 import styled from "@emotion/styled"
-import { withTheme } from "emotion-theming"
 import { rhythm } from "../utils/typography"
 
 const Head = styled.div`

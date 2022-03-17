@@ -1,8 +1,7 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import { css } from "@emotion/core"
-import { withTheme } from "emotion-theming"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { css, withTheme } from "@emotion/react"
 
 import Layout from "../components/Layout"
 import Metadata from "../components/Metadata"
@@ -50,15 +49,9 @@ const IndexPage = (props) => {
             width: 100%;
           `}
         >
-          <Img
-            css={css`
-              height: 100%;
-            `}
+          <GatsbyImage
             alt="It's-a-me!"
-            fluid={imageQuery["me"].childImageSharp.fluid}
-            imgStyle={{
-              objectFit: "contain",
-            }}
+            image={imageQuery["me"].childImageSharp.gatsbyImageData}
           />
         </div>
       </WrapBox>
