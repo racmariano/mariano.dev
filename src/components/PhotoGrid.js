@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import ImageList from "@material-ui/core/ImageList"
 import ImageListItem from "@material-ui/core/ImageListItem"
 
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { withTheme } from "@emotion/react"
 
 import ImageModal from "./ImageModal"
@@ -26,9 +26,9 @@ const PhotoGrid = withTheme((props) => {
             selectData(dataDiv)
           }}
         >
-          <Img
+          <GatsbyImage
             alt={entry.description}
-            fluid={imageData.childImageSharp.fluid}
+            image={imageData.childImageSharp.gatsbyImageData}
           />
         </ImageListItem>
       )
